@@ -1,5 +1,5 @@
 <link rel="manifest" href="{{ asset ('site.webmanifest') }}">
-  <link rel="apple-touch-icon" href="{{ asset ('assets/favicon.ico') }}">
+<link rel="shortcut icon" href= "{{ asset ('img/clinica-ico.ico') }}" >
   <!-- Place favicon.ico in the root directory -->
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
