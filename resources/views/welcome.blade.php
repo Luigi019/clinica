@@ -6,8 +6,8 @@
 }
 </style>
 @endsection --}}
-@section("title", "Inicio")
+@section("title", "CDMC")
 @section("content")
-<p>Hello World!</p>       
+<p>El inicio de Todo!</p>       
 @endsection
 
