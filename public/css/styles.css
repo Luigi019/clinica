@@ -49,7 +49,9 @@
   }
 }
 
-
+.pointer{
+  cursor: pointer;
+}
 .transition:hover{
   transition: .3s;
 
