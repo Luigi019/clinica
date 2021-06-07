@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
  <!-- Footer-->
  <footer class="footer bg-light">
             <div class="container">
@@ -27,8 +27,18 @@
                 </div>
             </div>
     
-
->>>>>>> 9480d80adde87880fca6264a4e6b9b3c269556f8
+            </footer>
+            <footer>
+            <div>
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-lg-8 text-center">
+                        <hr class="divider divider-light" /> 
+                        <p class="text-white-75 mb-4"><i><b>Sitio Web diseñado por  <a href="http://funnywebs.herokuapp.com/#page-top" target="_blank">Funny Webs</a></b></i></p>
+                       
+                    </div>
+                </div>
+            </div>
+    </footer>
 
 <!-- Bootstrap core JS-->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
@@ -40,6 +50,6 @@
 <script src="{{ asset('js/plugins.js') }}"></script>
 <script src="{{ asset('js/scripts.js') }}"></script>
  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-<!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
+
 
   @yield("js")

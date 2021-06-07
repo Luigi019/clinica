@@ -6,7 +6,7 @@
 @include("inc.imageshow") 
 @include("inc.testimonials") 
 @include("inc.signupform") 
-@endsection
+
 
 @section('js')
 <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
@@ -23,4 +23,5 @@
 		showCursor: false,
 	});
 </script>
+@endsection
 @endsection
