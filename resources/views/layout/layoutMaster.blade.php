@@ -28,12 +28,7 @@
     
 </div></h1>
                             <!-- Signup form-->
-                            <form>
-                                <div class="input-group input-group-lg">
-                                    <input class="form-control" type="text" placeholder="Ingrese su correo..." aria-label="Enter your email..." aria-describedby="button-submit" />
-                                    <button class="btn btn-primary" id="button-submit" type="button">¡Crear Cuenta!</button>
-                                </div>
-                            </form>
+                            <a class="btn btn-info transition">Hay que cambiar este boton por un boton mas bonito que rediriga a la seccion de servicios</a>
                         </div>
                     </div>
                 </div>
