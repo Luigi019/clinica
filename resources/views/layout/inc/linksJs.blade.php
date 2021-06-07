@@ -26,6 +26,16 @@
                 </div>
             </div>
         </footer>
+            <div>
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-lg-8 text-center">
+                        <hr class="divider divider-light" /> 
+                        <p class="text-white-75 mb-4"><i><b>Sitio Web diseñado por  <a href="http://funnywebs.herokuapp.com/#page-top" target="_blank">Funny Webs</a></b></i></p>
+                       
+                    </div>
+                </div>
+            </div>
+    </footer>
 
 <!-- Bootstrap core JS-->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
