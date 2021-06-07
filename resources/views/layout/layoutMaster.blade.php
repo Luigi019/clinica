@@ -9,10 +9,10 @@
 <body id="page-top">
         <!-- barra de navegación-->
      <!-- Navigation-->
-        <nav class="navbar navbar-light bg-light static-top">
+        <nav class="navbar navbar-light bg-light sticky-top">
             <div class="container">
-                <a class="navbar-brand" href="#!"><img src="{{ asset('img/clinica-ico.ico') }}" alt="logo" heigth="25%" width="25%"></a>
-                <a class="btn btn-primary" href="#signup">Crear Cuenta</a>
+                <a class="navbar-brand img-circle" href="#!"><img class="rounded-circle" src="{{ asset('img/clinica-ico.ico') }}" alt="logo" heigth="25%" width="25%"></a>
+                <a class="btn btn-sm btn-outline-primary font-weight-bold transition" href="#signup">Iniciar sesion</a>
             </div>
         </nav>
    
