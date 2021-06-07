@@ -24,7 +24,9 @@
                     <div class="col-xl-6">
                         <div class="text-center text-white">
                             <!-- Page heading-->
-                            <h1 class="mb-5">Frase favorita de usted!</h1>
+                            <h1 class="mb-5"><div id="typed">
+    
+</div></h1>
                             <!-- Signup form-->
                             <form>
                                 <div class="input-group input-group-lg">
@@ -41,6 +43,7 @@
   @yield("content")
 
 
+    @include('layout.inc.contact')
     @include('layout.inc.linksJs')
 
 </body>
