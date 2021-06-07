@@ -2,6 +2,9 @@
 
 @section("title", "CDMC")
 @section("content")
-<p>El inicio de Todo!</p>       
+@include("inc.icongrid")
+@include("inc.imageshow") 
+@include("inc.testimonials") 
+@include("inc.signupform") 
 @endsection
 
