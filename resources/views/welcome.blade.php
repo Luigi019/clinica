@@ -2,6 +2,7 @@
 
 @section("title", "Centro médico Diagnóstico Clínico")
 @section("content")
+@include("inc.navbar")
 @include("inc.icongrid")
 @include("inc.imageshow") 
 @include("inc.testimonials") 
@@ -15,7 +16,7 @@
 
 		strings: [
 		'',
-		'Tu frase favorita.'
+		'Tu salud es importante para nosotros.'
 
 		],
 		typeSpeed: 100,
@@ -24,4 +25,9 @@
 	});
 </script>
 @endsection
+
+
+@section('css')
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/fontawesome.min.css" integrity="undefined" crossorigin="anonymous">
+
 @endsection
