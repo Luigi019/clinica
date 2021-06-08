@@ -3193,7 +3193,15 @@ textarea.form-control-lg {
   background-color: #212529;
   border-color: #212529;
 }
+.btn-outline-second {
+  color: #0d6efd;
 
+}
+.btn-outline-second:hover {
+  color: #fff;
+  background-color: #0d6efd;
+
+}
 .btn-outline-primary {
   color: #0d6efd;
   border-color: #0d6efd;
@@ -3847,6 +3855,7 @@ textarea.form-control-lg {
   border-top-right-radius: 0;
 }
 
+
 .nav {
   display: flex;
   flex-wrap: wrap;
@@ -3858,7 +3867,7 @@ textarea.form-control-lg {
 .nav-link {
   display: block;
   padding: 0.5rem 1rem;
-  color: #0d6efd;
+  color: #f4623a;
   text-decoration: none;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
 }
@@ -3868,7 +3877,7 @@ textarea.form-control-lg {
   }
 }
 .nav-link:hover, .nav-link:focus {
-  color: #0a58ca;
+  color: #c34e2e;
 }
 .nav-link.disabled {
   color: #6c757d;
@@ -3915,7 +3924,7 @@ textarea.form-control-lg {
 .nav-pills .nav-link.active,
 .nav-pills .show > .nav-link {
   color: #fff;
-  background-color: #0d6efd;
+  background-color: #f4623a;
 }
 
 .nav-fill > .nav-link,
@@ -4259,6 +4268,71 @@ textarea.form-control-lg {
 .navbar-dark .navbar-text a:hover,
 .navbar-dark .navbar-text a:focus {
   color: #fff;
+}
+
+#mainNav {
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  background-color: #fff;
+  transition: background-color 0.2s ease!important;
+  background: url("../img/bg-masthead1.jpg") no-repeat center center;
+  background-size: cover;
+  color: #212529!important;
+}
+#mainNav .navbar-brand {
+  font-family: "Merriweather Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-weight: 700;
+  color: #212529;
+}
+#mainNav .navbar-nav .nav-item .nav-link {
+  color: #6c757d;
+  font-family: "Merriweather Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-weight: 700;
+  font-size: 0.9rem;
+  padding: 0.75rem 0;
+}
+#mainNav .navbar-nav .nav-item .nav-link:hover, #mainNav .navbar-nav .nav-item .nav-link:active {
+  color: #0d6efd;
+}
+#mainNav .navbar-nav .nav-item .nav-link.active {
+  color: #0d6efd !important;
+}
+@media (min-width: 992px) {
+  #mainNav {
+    box-shadow: none;
+    background-color: transparent;
+  }
+  #mainNav .navbar-brand {
+    color: #212529;
+  }
+  #mainNav .navbar-brand:hover {
+    color: #0d6efd;
+  }
+  #mainNav .navbar-nav .nav-item .nav-link {
+    color: #212529;
+    padding: 0 1rem;
+  }
+  #mainNav .navbar-nav .nav-item .nav-link:hover {
+    color: #0d6efd;
+  }
+  #mainNav .navbar-nav .nav-item:last-child .nav-link {
+    padding-right: 0;
+  }
+  #mainNav.navbar-shrink {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    background-color: #fff;
+  }
+  #mainNav.navbar-shrink .navbar-brand {
+    color: #212529;
+  }
+  #mainNav.navbar-shrink .navbar-brand:hover {
+    color: #0d6efd;
+  }
+  #mainNav.navbar-shrink .navbar-nav .nav-item .nav-link {
+    color: #212529;
+  }
+  #mainNav.navbar-shrink .navbar-nav .nav-item .nav-link:hover {
+    color: #0d6efd;
+  }
 }
 
 .card {
@@ -7105,12 +7179,10 @@ textarea.form-control-lg {
   padding-top: 0.5rem !important;
   padding-bottom: 0.5rem !important;
 }
-
 .py-3 {
   padding-top: 1rem !important;
   padding-bottom: 1rem !important;
 }
-
 .py-4 {
   padding-top: 1.5rem !important;
   padding-bottom: 1.5rem !important;
