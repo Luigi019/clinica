@@ -1,8 +1,9 @@
       <!-- barra de navegación-->
         <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
-            <div class="container px-4 px-lg-5">
-            <a class="navbar-brand img-circle" href="#page-top"><img class="rounded-circle" src="{{ asset('img/clinica-ico.ico') }}" alt="logo" heigth="10%" width="10%">{{ config('app.name') }}</a>
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3 d-flex" id="mainNav">
+        <div class="container px-4 px-lg-5 ">
+              <img class="rounded-circle" src="{{ asset('img/clinica-ico.ico') }}" alt="logo" height="10%" width="10%">
+              <a class="navbar-brand" href="#page-top">{{ config('app.name') }}</a>
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto my-2 my-lg-0">
