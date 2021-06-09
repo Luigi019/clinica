@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\Admin\UserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,3 +12,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+Route::get('/login',[UserController::class,'index'])->name('login');
