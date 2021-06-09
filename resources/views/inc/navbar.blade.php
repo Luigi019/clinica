@@ -10,12 +10,14 @@
                         <li class="nav-item"><a class="nav-link" href="#">Servicios</a></li>
                         <li class="nav-item"><a class="nav-link" href="#">Equipo</a></li>
                         <li class="nav-item"><a class="nav-link" href="#">Contactanos</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#signup">Iniciar sesion</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#signup" data-toggle="modal" data-target="#exampleModal">Iniciar sesion</a></li>
                     </ul>
                 </div>
             </div>
         </nav>
           <br><br><br>
+
+          @include('inc.login');
 
         <!-- Inicio del header-->
         <!-- Masthead-->
