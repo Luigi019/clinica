@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\HomeController;
 |
 */
 
+
 Route::get('admin',function(){
 	return view('admin.home');
-});
+  })->name('panel');;

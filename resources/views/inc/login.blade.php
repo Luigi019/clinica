@@ -9,33 +9,29 @@
         </button>
       </div>
       <div class="modal-body">
-      <form class="form-signin">
+      <form class="form-signin" method="post" action="{{ route ('login') }}">
               <div class="form-label-group">
-                <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+                <input type="email" id="inputEmail" class="form-control" placeholder="Email address"  name="email" required autofocus>
                 <label for="inputEmail">Correo Electronico</label>
               </div>
 
               <div class="form-label-group">
-                <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+                <input type="password" id="inputPassword" class="form-control" placeholder="Password" name="password"  required>
                 <label for="inputPassword">Contraseña</label>
               </div>
 
               <div class="custom-control custom-checkbox mb-3" d-flex>
-                <input type="checkbox" class="custom-control-input" id="customCheck1">
+                <input type="checkbox" class="custom-control-input" id="customCheck1" name="token">
                 <label class="custom-control-label" for="customCheck1">Recordar Contraseña</label>
                 <a class="custom-control-label" text-style="none" href="#">¿Olvidaste la contraseña?</a>
               </div>
          
              
       </div>
-      <div class="modal-footer" text-align="center center">
-        <table text-align="center center">
-          <tr>
-            <td> <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button></td>
-            <td><button class="btn btn-primary" type="submit">Aceptar</button></td>
-          </tr>
-        </table>
-
+      <div class="modal-footer justify-content-center" d-flex>
+ <!--<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>-->
+           <button class="btn btn-primary" type="submit">Aceptar</button>
+           @csrf 
         </form>
       </div>
     </div>

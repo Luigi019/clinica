@@ -13,4 +13,4 @@ use App\Http\Controllers\Admin\UserController;
 */
 
 
-Route::get('/login',[UserController::class,'index'])->name('login');
+Route::post('/login',[UserController::class,'login'])->name('login');
