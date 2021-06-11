@@ -11,8 +11,11 @@ use App\Http\Controllers\Admin\HomeController;
 | Rutas para administradores
 |
 */
+Route::group(['prefix'=>'admin' , 'middleware' => 'auth'] , function(){
 
-
-Route::get('admin',function(){
+Route::post('admin',function(){
 	return view('admin.home');
   })->name('panel');;
+  
+  });
+

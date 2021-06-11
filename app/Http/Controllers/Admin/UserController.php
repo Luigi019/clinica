@@ -8,14 +8,18 @@ use App\Models\User;
 use Hash, Auth;
 class UserController extends Controller
 {
-    public function login( Request $request )
+	     /* ]); 
+		 public function __construc()
+		 {
+		 $this->middleware('auth')->except('login');
+	 }
+   
+       User::create( [
+           'name'=>'empresa',
+           'email'=>'funnywebs0@gmail.com', 
+           'password'=>Hash::make('1234') */
+  public function login( Request $request )
     {
-     //  User::create( [
-      //     'name'=>'empresa',
-      //     'email'=>'funnywebs0@gmail.com', 
-      //     'password'=>Hash::make('1234')
-      // ]); 
-    
 		$credenciales = $this->validate($request,[
 			'email'=>['email','required'],
 			'password'=>'required',
@@ -35,7 +39,7 @@ class UserController extends Controller
     public function logout(){
 		Auth::logout();
 
-		redirect('/');
+		return redirect()->route('home');
 	}
 
 }
