@@ -1,5 +1,6 @@
 <?php
 
+$prefix = 'admin/';
 return [
 
     /*
@@ -228,7 +229,7 @@ return [
         // Navbar items:
         [
             'type'         => 'navbar-search',
-            'text'         => 'search',
+            'text'         => 'Buscar',
             'topnav_right' => true,
         ],
         [
@@ -241,67 +242,51 @@ return [
             'type' => 'sidebar-menu-search',
             'text' => 'search',
         ],
-        [
-            'text' => 'blog',
-            'url'  => 'admin/blog',
-            'can'  => 'manage-blog',
-        ],
+        // [
+        //  Si tuviera laravel permission
+        //     'text' => 'blog',
+        //     'url'  => $prefix.'blog',
+        //     'can'  => 'manage-blog',
+        // ],
         [
             'text'        => 'pages',
-            'url'         => 'admin/pages',
+            'url'         => $prefix.'pages',
             'icon'        => 'far fa-fw fa-file',
             'label'       => 4,
             'label_color' => 'success',
         ],
-        ['header' => 'account_settings'],
         [
-            'text' => 'profile',
-            'url'  => 'admin/settings',
+            'text' => 'Perfil',
+            'url'  => $prefix.'settings',
             'icon' => 'fas fa-fw fa-user',
         ],
         [
-            'text' => 'change_password',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-lock',
+            'text' => 'Empleados',
+            'url'  => $prefix.'settings',
+            'icon' => 'fas fa-fw fa-user',
         ],
         [
-            'text'    => 'multilevel',
-            'icon'    => 'fas fa-fw fa-share',
+            'text'    => 'Usuarios',
+            'icon'    => 'fas fa-users',
             'submenu' => [
                 [
-                    'text' => 'level_one',
-                    'url'  => '#',
+                    'text' => 'Listado de usuarios',
+                    'url'  =>  $prefix.'listar/usuarios',
                 ],
                 [
-                    'text'    => 'level_one',
-                    'url'     => '#',
-                    'submenu' => [
-                        [
-                            'text' => 'level_two',
-                            'url'  => '#',
-                        ],
-                        [
-                            'text'    => 'level_two',
-                            'url'     => '#',
-                            'submenu' => [
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                            ],
-                        ],
-                    ],
+                    'text'    => 'Roles',
+                    'url'     => $prefix.'listar/roles',
                 ],
-                [
-                    'text' => 'level_one',
-                    'url'  => '#',
-                ],
+
             ],
+
         ],
+        [
+            'text'       => 'Olvide mi clave',
+            'icon'       => 'fas fa-lock',
+            'url'        => '#',
+        ],
+
         ['header' => 'labels'],
         [
             'text'       => 'important',

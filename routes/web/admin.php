@@ -14,8 +14,8 @@ use App\Http\Controllers\Admin\UserController;
 | Rutas para administradores
 |
 */
-Route::group(['prefix'=>'admin' , 'middleware' => 'auth'] , function(){
 
+<<<<<<< HEAD
   Route::get('admin',function(){
     return view('admin.home');
     })->name('panel');;
@@ -47,3 +47,11 @@ Route::group(['prefix'=>'admin' , 'middleware' => 'auth'] , function(){
   */
   
   });
+=======
+Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
+
+    Route::get('admin', function () {
+        return view('admin.home');
+    })->name('panel');;
+});
+>>>>>>> b3b97c5bbf3f1f36445b556dafd98f1ca14e754e
