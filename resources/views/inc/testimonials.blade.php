@@ -44,7 +44,7 @@
 {{-- FIN CARRUSEL --}}
     <div class="carousel-item ">
           <div class="row">
-          
+
             <div class="col-lg-4">
                 <div class="testimonial-item mx-auto mb-5 mb-lg-0">
                     <img class="img-fluid rounded-circle mb-3" src="{{ asset ('img/testimonials-2.jpg') }}" alt="..." />
@@ -64,8 +64,8 @@
 
    <div class="carousel-item ">
           <div class="row">
-          
-           
+
+
             <div class="col-lg-4">
                 <div class="testimonial-item mx-auto mb-5 mb-lg-0">
                     <img class="img-fluid rounded-circle mb-3" src="{{ asset ('img/testimonials-3.jpg') }}" alt="..." />

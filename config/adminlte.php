@@ -248,22 +248,22 @@ return [
         //     'url'  => $prefix.'blog',
         //     'can'  => 'manage-blog',
         // ],
-        [
-            'text'        => 'pages',
-            'url'         => $prefix.'pages',
-            'icon'        => 'far fa-fw fa-file',
-            'label'       => 4,
-            'label_color' => 'success',
-        ],
+        ['header'=>'Gestor de contenido'],
+
         [
             'text' => 'Perfil',
             'url'  => $prefix.'settings',
             'icon' => 'fas fa-fw fa-user',
         ],
         [
+            'text' => 'Servicios',
+            'url'  => $prefix.'listar/servicios',
+            'icon' => 'fas fa-book-medical',
+        ],
+        [
             'text' => 'Empleados',
             'url'  => $prefix.'settings',
-            'icon' => 'fas fa-fw fa-user',
+            'icon' => 'fas fa-heart',
         ],
         [
             'text'    => 'Usuarios',
@@ -272,10 +272,12 @@ return [
                 [
                     'text' => 'Listado de usuarios',
                     'url'  =>  $prefix.'listar/usuarios',
+                    'icon_color'=>'blue'
                 ],
                 [
                     'text'    => 'Roles',
-                    'url'     => $prefix.'listar/roles',
+                    'url'     => $prefix.'roles',
+                    'icon_color'=>'green'
                 ],
 
             ],
@@ -287,22 +289,7 @@ return [
             'url'        => '#',
         ],
 
-        ['header' => 'labels'],
-        [
-            'text'       => 'important',
-            'icon_color' => 'red',
-            'url'        => '#',
-        ],
-        [
-            'text'       => 'warning',
-            'icon_color' => 'yellow',
-            'url'        => '#',
-        ],
-        [
-            'text'       => 'information',
-            'icon_color' => 'cyan',
-            'url'        => '#',
-        ],
+
     ],
 
     /*
