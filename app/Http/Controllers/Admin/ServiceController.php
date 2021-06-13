@@ -20,4 +20,12 @@ class ServiceController extends Controller
     {
         return view ('admin.servicios.edit');
     }
+    public function store()
+    {
+        return view ('admin.servicios.edit');
+    }
+    public function destroy()
+    {
+        return view ('admin.servicios.edit');
+    }
 }

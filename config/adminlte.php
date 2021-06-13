@@ -189,7 +189,7 @@ return [
     */
 
     'use_route_url' => false,
-    'dashboard_url' => 'home',
+    'dashboard_url' => 'admin/home',
     'logout_url' => 'logout',
     'login_url' => 'login',
     'register_url' => 'register',
@@ -257,12 +257,12 @@ return [
         ],
         [
             'text' => 'Servicios',
-            'url'  => $prefix.'listar/servicios',
+            'url'  => $prefix.'servicios',
             'icon' => 'fas fa-book-medical',
         ],
         [
             'text' => 'Empleados',
-            'url'  => $prefix.'settings',
+            'url'  => $prefix.'empleados',
             'icon' => 'fas fa-heart',
         ],
         [
@@ -271,7 +271,7 @@ return [
             'submenu' => [
                 [
                     'text' => 'Listado de usuarios',
-                    'url'  =>  $prefix.'listar/usuarios',
+                    'url'  =>  $prefix.'usuarios',
                     'icon_color'=>'blue'
                 ],
                 [

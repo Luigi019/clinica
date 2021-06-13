@@ -19,4 +19,13 @@ class EmployeeController extends Controller
     {
         return view ('admin.empleados.edit');
     }
+    public function store()
+    {
+        return view ('admin.empleados.edit');
+    }
+    public function destroy()
+    {
+        return view ('admin.empleados.edit');
+    }
+ 
 }

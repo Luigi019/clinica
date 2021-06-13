@@ -54,4 +54,12 @@ class UserController extends Controller
     {
         return view ('admin.usuarios.edit');
     }
+	public function store()
+    {
+        return view ('admin.usuarios.edit');
+    }
+    public function destroy()
+    {
+        return view ('admin.usuarios.edit');
+    }
 }
