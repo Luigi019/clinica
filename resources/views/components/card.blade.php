@@ -1,7 +1,14 @@
-<div class="card text-center shadow-lg">
-	<div class="card-body">
-		<h4 class="card-title">Card title</h4>
-		<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-		<a href="#" class="btn btn-primary">Go somewhere</a>
-	</div>
-</div>
+<div>
+    <div class="card text-left shadow-lg">
+      <div class="card-body">
+        <div class="card-title d-flex ">{{ $title }}
+    @if($btnTxt)
+    <a href="{{ $url }}" class=" ml-5 btn btn-sm btn-outline-primary font-weight-bold">{{ $btnTxt }}</a>
+    @endif
+        </div>
+      <div class='mt-5'>
+        {{ $slot }}
+      </div>
+      </div>
+    </div>
+    </div>

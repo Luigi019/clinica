@@ -276,7 +276,7 @@ return [
                 ],
                 [
                     'text'    => 'Roles',
-                    'url'     => $prefix.'listar/roles',
+                    'url'     => $prefix.'roles',
                     'icon_color'=>'green'
                 ],
 
