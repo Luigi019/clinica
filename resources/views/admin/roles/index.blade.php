@@ -10,47 +10,51 @@
 <x-card title='Todos los roles de la base de datos' btnTxt='CREAR ROL' showBtn="{{true}}" url="{{route('roles.create')}}">
 
     <div class='table-responsive'>
-      <table id="datatable" class="display" style="width:100%">
-        <thead>
+    <table id="example" class="table table-responsive table-hover" >
+				<thead>
+					<th class="text-center">#</th>
+					<th class="text-center"width='50%'>Nombre</th>
+					{{-- <th class="text-center"width='25%'>Permisos</th> --}}
+					{{-- <th  class="text-center"width='25%'>Fecha de creaci&oacute;n</th>
+					<th  class="text-center"width='25%'>Fecha de actualizaci&oacute;n</th> --}}
+					<th  class="text-center"width='50%'>Opciones</th>
+				</thead>
+				<tbody>
+
+					@foreach ($roles as $rol)
+					<tr>
+						<td class="text-center">{{ $rol->id }}</td>
+						<td width='50%' class="text-center">{{ $rol->name }}</td>
+						
+						{{-- <td width='25%'>{{ $rol->created_at }}</td>
+						<td width='25%'>{{ $rol->updated_at }}</td> --}}
+						<td class="text-center" width='50%'>
+							{{-- @can('eliminar rol') --}}
+								<a href="{{ route('roles.destroy',$rol->id) }}" class="btn btn-danger font-weight-bold" title="">Eliminar</a>
+							{{-- @endcan --}}
+							{{-- @can('modificar rol') --}}
+							<a href="{{ route('roles.edit',$rol->id)}}" class="btn btn-warning font-weight-bold" title="">Editar</a>
+							{{-- @endcan --}}
+							{{-- @can('ver rol') --}}
+							<a href="{{ route('roles.show',$rol->id)}}" class="btn btn-secondary font-weight-bold" title="">Ver</a>
+							{{-- @endcan --}}
+						</td>
+					</tr>
+					@endforeach
+					
+				</tbody>
+
+                <tfoot>
             <tr>
-                <th>Name</th>
-                <th>Position</th>
-                <th>Office</th>
-                <th>Age</th>
-                <th>Start date</th>
-                <th>Salary</th>
-                <th colspan='2'>Opciones</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Tiger Nixon</td>
-                <td>System Architect</td>
-                <td>Edinburgh</td>
-                <td>61</td>
-                <td>2011/04/25</td>
-                <td>$320,800</td>
-                <td>
-                <a>Eliminar</a>
-                 <a>Editar</a>
-                  <a>Detalle</a>
-                
-                </td>
-            </tr>
-           
-        </tbody>
-        <tfoot>
-            <tr>
-                <th>Name</th>
-                <th>Position</th>
-                <th>Office</th>
-                <th>Age</th>
-                <th>Start date</th>
-                <th>Salary</th>
-                <th>Opciones</th>
+               <th class="text-center">#</th>
+					<th class="text-center"width='50%'>Nombre</th>
+					{{-- <th class="text-center"width='25%'>Permisos</th> --}}
+					{{-- <th  class="text-center"width='25%'>Fecha de creaci&oacute;n</th>
+					<th  class="text-center"width='25%'>Fecha de actualizaci&oacute;n</th> --}}
+					<th  class="text-center"width='50%'>Opciones</th>
             </tr>
         </tfoot>
-    </table>
+			</table>
     </div>
 </x-card>
 @endsection

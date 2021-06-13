@@ -40,12 +40,11 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
    //Rutas para roles
    //Routes for roles
    Route::get('/roles',[RoleController::class, 'index'])->name('roles.listar');
-   Route::get('/roles/edit',[RoleController::class, 'edit'])->name('roles.edit');
+   Route::get('/roles/edit/{role}',[RoleController::class, 'edit'])->name('roles.edit');
    Route::get('/roles/create',[RoleController::class, 'create'])->name('roles.create');
-   Route::get('/roles/sotre',[RoleController::class, 'store'])->name('roles.store');
-
-    Route::post('/Panel',[HomeController::class,'index'])->name('index');
-
+   Route::post('/roles/sotre',[RoleController::class, 'store'])->name('roles.store');
+   Route::get('/roles/delete/{role}',[RoleController::class, 'destroy'])->name('roles.destroy');
+   Route::get('/roles/ver/{role}',[RoleController::class, 'create'])->name('roles.show');
   /*Rutas para todos
   all routes
     Route::resource('/usuarios', [UserController::class]);
