@@ -42,4 +42,16 @@ class UserController extends Controller
 		return redirect()->route('home');
 	}
 
+	public function index()
+    {
+        return view ('admin.usuarios.index');
+    }
+    public function create()
+    {
+        return view ('admin.usuarios.create');
+    }
+    public function edit()
+    {
+        return view ('admin.usuarios.edit');
+    }
 }

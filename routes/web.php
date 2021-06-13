@@ -17,7 +17,6 @@
 //     return view('welcome');
 // });
 
-
 /**
  * NOTICE IMPORTANT
  * 
