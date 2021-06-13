@@ -14,7 +14,5 @@ use App\Http\Controllers\Admin\HomeController;
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
 
-    Route::get('admin', function () {
-        return view('admin.home');
-    })->name('panel');;
+    Route::get('home',[HomeController::class,'index'])->name('panel');;
 });
