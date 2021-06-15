@@ -24,7 +24,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
    Route::get('/empleados',[EmployeeController::class, 'index'])->name('empleados.listar');
    Route::get('/empleados/edit{employee}',[EmployeeController::class, 'edit'])->name('empleados.edit');
    Route::get('/empleados/create',[EmployeeController::class, 'create'])->name('empleados.create');
-   Route::get('/empleados/store',[EmployeeController::class, 'store'])->name('empleados.store');
+   Route::post('/empleados/store',[EmployeeController::class, 'store'])->name('empleados.store');
+   Route::put('/empleados/update{employee}',[EmployeeController::class, 'update'])->name('empleados.update');
    Route::get('/empleados/delete{employee}',[EmployeeController::class, 'destroy'])->name('empleados.destroy');
    Route::get('/empleados/ver{employee}',[EmployeeController::class, 'create'])->name('empleados.show');
 
@@ -33,7 +34,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
    Route::get('/usuarios',[UserController::class, 'index'])->name('usuarios.listar');
    Route::get('/usuarios/edit{user}',[UserController::class, 'edit'])->name('usuarios.edit');
    Route::get('/usuarios/create',[UserController::class, 'create'])->name('usuarios.create');
-   Route::get('/usuarios/store',[UserController::class, 'store'])->name('usuarios.store');
+   Route::post('/usuarios/store',[UserController::class, 'store'])->name('usuarios.store');
+   Route::put('/usuarios/update{user}',[UserController::class, 'update'])->name('usuarios.update');
    Route::get('/usuarios/delete{user}',[UserController::class, 'destroy'])->name('usuarios.destroy');
    Route::get('/usuarios/ver{user}',[UserController::class, 'create'])->name('usuarios.show');
 
@@ -42,7 +44,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
    Route::get('/servicios',[ServiceController::class, 'index'])->name('servicios.listar');
    Route::get('/servicios/edit{service}',[ServiceController::class, 'edit'])->name('servicios.edit');
    Route::get('/servicios/create',[ServiceController::class, 'create'])->name('servicios.create');
-   Route::get('/servicios/store',[ServiceController::class, 'store'])->name('servicios.store');
+   Route::post('/servicios/store',[ServiceController::class, 'store'])->name('servicios.store');
+   Route::put('/serviciosu/update{service}',[ServiceController::class, 'update'])->name('servicios.update');
    Route::get('/servicios/delete{service}',[ServiceController::class, 'destroy'])->name('servicios.destroy');
    Route::get('/servicios/ver{service}',[ServiceController::class, 'create'])->name('servicios.show');
 
@@ -52,6 +55,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
    Route::get('/roles/edit/{role}',[RoleController::class, 'edit'])->name('roles.edit');
    Route::get('/roles/create',[RoleController::class, 'create'])->name('roles.create');
    Route::post('/roles/store',[RoleController::class, 'store'])->name('roles.store');
+   Route::put('/roles/update/{role}',[RoleController::class, 'update'])->name('roles.update');
    Route::get('/roles/delete/{role}',[RoleController::class, 'destroy'])->name('roles.destroy');
    Route::get('/roles/ver/{role}',[RoleController::class, 'create'])->name('roles.show');
   /*Rutas para todos
@@ -59,6 +63,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::resource('/usuarios', [UserController::class]);
     Route::resource('/empleados', [EmployeeController::class]);
     Route::resource('/servicios', [ServiceController::class]);
+    Route::resource('/roles', [RoleController::class]);
   */
 
   });
