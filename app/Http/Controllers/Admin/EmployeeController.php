@@ -23,7 +23,7 @@ class EmployeeController extends Controller
     {
             $datosEmpleado=$request->except("_token");
            
-            EmployeeDB::insert($datosEmpleado);
+            Employee::insert($datosEmpleado);
             return response()->json($datosEmpleado);
     }
     public function destroy()
