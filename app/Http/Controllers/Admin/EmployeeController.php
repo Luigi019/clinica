@@ -9,26 +9,38 @@ class EmployeeController extends Controller
 {
     public function index()
     {
-        return view ('admin.empleados.index');
+        $datos['employees']=Employee::paginate(5);
+        return view ('admin.empleados.index', $datos);
     }
     public function create()
     {
         return view ('admin.empleados.create');
     }
-    public function edit()
+    public function edit($id)
     {
-        return view ('admin.empleados.edit');
+        $employee=Employee::findOrFail($id);
+        return view ('admin.empleados.edit', compact('employee'));
+    }
+    public function update()
+    {
+
     }
     public function store(Request $request)
     {
             $datosEmpleado=$request->except("_token");
+            if($request->hasFile('photo')){
+                $datosEmpleado['photo']=$request->file('photo')->store('uploads', 'public');
+            }
            
             Employee::insert($datosEmpleado);
             return response()->json($datosEmpleado);
     }
-    public function destroy()
+    public function destroy($id)
     {
-        return view ('admin.empleados.destroy');
+        //
+        Employee::destroy($id);
+     return redirect('admin/empleados');
+
     }
  
 }

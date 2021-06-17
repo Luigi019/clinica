@@ -10,16 +10,7 @@
     <div class='form-responsive'>
 <form action="{{ url('/admin/empleados/store')}}" method="POST" enctype="multipart/form-data">
     @csrf
-    <label for="Nombre">Nombre: </label>
-    <input type="text" name="name" id="name" maxlength="25" onkeydown="return sololetras(event)" required>  <br>
-    <label for="Apellido">Apellido: </label>
-    <input type="text" name="lastname" id="lastname" required>    <br>
-    <label for="Correo">Correo: </label>
-    <input type="email" name="email" id="email" required><br>
-    <label for="Foto">Foto: </label>
-    <input type="file" name="photo" id="photo" > <br>
-    <input type="submit" value="Agregar" >
-    <input type="reset" value="Restablecer"> 
+    @include ('admin.empleados.form')
 </form>
 
 <br>

@@ -10,33 +10,43 @@
 <x-card title='Todos los empleados de la base de datos' btnTxt='CREAR EMPLEADO' showBtn="{{true}}" url="{{route('empleados.create')}}">
 
     <div class='table-responsive'>
-    <table id="example" class="table table-responsive table-hover" >
-				<thead>
+    <table id="example" class="table table-responsive table-hover table-light" >
+				<thead class="thead-dark">
 					<th class="text-center">#</th>
-					<th class="text-center"width='50%'>Nombre</th>
+					<th class="text-center"width='20%'>Nombre</th>
+					<th class="text-center"width='20%'>Apellido</th>
+					<th class="text-center"width='20%'>Correo</th>
+					<th class="text-center"width='20%'>Foto</th>
 					{{-- <th class="text-center"width='25%'>Permisos</th> --}}
 					{{-- <th  class="text-center"width='25%'>Fecha de creaci&oacute;n</th>
 					<th  class="text-center"width='25%'>Fecha de actualizaci&oacute;n</th> --}}
-					<th  class="text-center"width='50%'>Opciones</th>
+					<th  class="text-center"width='20%'>Opciones</th>
 				</thead>
 				<tbody>
 
-					@foreach ($roles as $rol)
+					@foreach ($employees as $employee)
 					<tr>
-						<td class="text-center">{{ $rol->id }}</td>
-						<td width='50%' class="text-center">{{ $rol->name }}</td>
-						
+						<td class="text-center">{{ $employee->id }}</td>
+						<td width='20%' class="text-center">{{ $employee->name }}</td>
+						<td width='20%' class="te2t-center">{{ $employee->lastname }}</td>
+						<td width='20%' class="text-center">{{ $employee->email }}</td>
+						<td width='20%' class="text-center">{{ $employee->photo }}</td>
 						{{-- <td width='25%'>{{ $rol->created_at }}</td>
 						<td width='25%'>{{ $rol->updated_at }}</td> --}}
-						<td class="text-center" width='50%'>
+						<td class="text-center" width='20%'>
 							{{-- @can('eliminar rol') --}}
-								<a href="{{ route('roles.destroy',$rol->id) }}" class="btn btn-danger font-weight-bold" title="">Eliminar</a>
+							<form action="{{ route('empleados.destroy',$employee->id) }}" method="GET">
+								@csrf
+								<input class="btn btn-danger font-weight-bold" type="submit" onclick="return confirm('¿Quieres eliminar este registro?')"
+								 value="Borrar">
+							</form>
+								
 							{{-- @endcan --}}
 							{{-- @can('modificar rol') --}}
-							<a href="{{ route('roles.edit',$rol->id)}}" class="btn btn-warning font-weight-bold" title="">Editar</a>
+							<a href="{{ route('empleados.edit',$employee->id)}}" width="33%" class="btn btn-warning font-weight-bold" title="">Editar</a>
 							{{-- @endcan --}}
 							{{-- @can('ver rol') --}}
-							<a href="{{ route('roles.show',$rol->id)}}" class="btn btn-secondary font-weight-bold" title="">Ver</a>
+							<a href="{{ route('empleados.show',$employee->id)}}" width="33%" class="btn btn-secondary font-weight-bold" title="">Ver</a>
 							{{-- @endcan --}}
 						</td>
 					</tr>
@@ -44,14 +54,17 @@
 					
 				</tbody>
 
-                <tfoot>
+                <tfoot class="thead-dark">
             <tr>
-               <th class="text-center">#</th>
-					<th class="text-center"width='50%'>Nombre</th>
-					{{-- <th class="text-center"width='25%'>Permisos</th> --}}
-					{{-- <th  class="text-center"width='25%'>Fecha de creaci&oacute;n</th>
-					<th  class="text-center"width='25%'>Fecha de actualizaci&oacute;n</th> --}}
-					<th  class="text-center"width='50%'>Opciones</th>
+				<th class="text-center">#</th>
+				<th class="text-center"width='20%'>Nombre</th>
+				<th class="text-center"width='20%'>Apellido</th>
+				<th class="text-center"width='20%'>Correo</th>
+				<th class="text-center"width='20%'>Foto</th>
+				{{-- <th class="text-center"width='25%'>Permisos</th> --}}
+				{{-- <th  class="text-center"width='25%'>Fecha de creaci&oacute;n</th>
+				<th  class="text-center"width='25%'>Fecha de actualizaci&oacute;n</th> --}}
+				<th  class="text-center"width='20%'>Opciones</th>
             </tr>
         </tfoot>
 			</table>

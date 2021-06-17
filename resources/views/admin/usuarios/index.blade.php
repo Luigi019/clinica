@@ -11,7 +11,7 @@
 
     <div class='table-responsive'>
     <table id="example" class="table table-responsive table-hover" >
-				<thead>
+				<thead class="thead-dark">
 					<th class="text-center">#</th>
 					<th class="text-center"width='50%'>Nombre</th>
 					{{-- <th class="text-center"width='25%'>Permisos</th> --}}
@@ -44,7 +44,7 @@
 					
 				</tbody>
 
-                <tfoot>
+                <tfoot class="thead-dark">
             <tr>
                <th class="text-center">#</th>
 					<th class="text-center"width='50%'>Nombre</th>

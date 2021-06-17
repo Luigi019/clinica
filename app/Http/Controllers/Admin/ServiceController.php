@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-
+use App\Models\Service;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -10,22 +10,33 @@ class ServiceController extends Controller
     //
     public function index()
     {
-        return view ('admin.servicios.index');
+        $datos['Services']=Service::paginate(5);
+        return view ('admin.servicios.index', $datos);
     }
     public function create()
     {
         return view ('admin.servicios.create');
     }
-    public function edit()
+    public function edit($id)
     {
-        return view ('admin.servicios.edit');
+        $service=Service::findOrFail($id);
+        return view ('admin.servicios.edit', compact('service'));
     }
-    public function store()
+    public function store(Request $request)
     {
-        return view ('admin.servicios.edit');
+            $datosServicio=$request->except("_token");
+            if($request->hasFile('photo')){
+                $datosServicio['photo']=$request->file('photo')->store('uploads', 'public');
+            }
+           
+            Service::insert($datosServicio);
+            return response()->json($datosServicio);
     }
-    public function destroy()
+    public function destroy($id)
     {
-        return view ('admin.servicios.edit');
+        //
+        Service::destroy($id);
+     return redirect('admin/servicios');
+
     }
 }
