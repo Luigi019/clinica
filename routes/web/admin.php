@@ -31,13 +31,14 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
 
     //Rutas para usuarios
     //Routes for users
-   Route::get('/usuarios',[UserController::class, 'index'])->name('usuarios.listar');
-   Route::get('/usuarios/edit{user}',[UserController::class, 'edit'])->name('usuarios.edit');
-   Route::get('/usuarios/create',[UserController::class, 'create'])->name('usuarios.create');
-   Route::post('/usuarios/store',[UserController::class, 'store'])->name('usuarios.store');
-   Route::put('/usuarios/update{user}',[UserController::class, 'update'])->name('usuarios.update');
-   Route::get('/usuarios/delete{user}',[UserController::class, 'destroy'])->name('usuarios.destroy');
-   Route::get('/usuarios/ver{user}',[UserController::class, 'create'])->name('usuarios.show');
+   Route::get('/usuarios',[UserController::class, 'index'])->name('user.list');
+   Route::get('/usuarios/edit/{user}',[UserController::class, 'edit'])->name('user.edit');
+   Route::get('/usuarios/create',[UserController::class, 'create'])->name('user.create');
+   Route::post('/usuarios/store',[UserController::class, 'store'])->name('user.store');
+   Route::put('/usuarios/update/{user}',[UserController::class, 'update'])->name('user.update');
+   Route::get('/usuarios/delete/{user}',[UserController::class, 'destroy'])->name('user.destroy');
+   Route::get('/usuarios/ver{user}',[UserController::class, 'show'])->name('user.show');
+
 
    //Rutas para servicios
    //Routes for service

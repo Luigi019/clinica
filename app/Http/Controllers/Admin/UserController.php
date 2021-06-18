@@ -5,61 +5,110 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
 use Hash, Auth;
+
 class UserController extends Controller
 {
-	     /* ]); 
-		 public function __construc()
-		 {
-		 $this->middleware('auth')->except('login');
-	 }
-   
-       User::create( [
-           'name'=>'empresa',
-           'email'=>'funnywebs0@gmail.com', 
-           'password'=>Hash::make('1234') */
-  public function login( Request $request )
+    public function login(Request $request)
     {
-		$credenciales = $this->validate($request,[
-			'email'=>['email','required'],
-			'password'=>'required',
-		]);
-		$user = Auth::attempt($credenciales);
+        $credenciales = $this->validate($request, [
+            'email' => ['email', 'required'],
+            'password' => 'required',
+        ]);
+        $user = Auth::attempt($credenciales);
 
-		if (!$user) {
+        if (!$user) {
 
-			return redirect()->back()->with('message','Alguno de los campos es incorrecto')->with('type','warning');
-		}
+            return redirect()->back()->with('message', 'Alguno de los campos es incorrecto')->with('type', 'warning');
+        }
 
-		$request->session()->regenerate();
+        $request->session()->regenerate();
 
-		return redirect()->route('panel');
-
-	}
-    public function logout(){
-		Auth::logout();
-
-		return redirect()->route('home');
-	}
-
-	public function index()
-    {
-        return view ('admin.usuarios.index');
+        return redirect()->route('panel');
     }
+    public function logout()
+    {
+        Auth::logout();
+
+        return redirect()->route('home');
+    }
+
+    public function index()
+    {
+      
+        $users = User::where('id','!=',Auth::user()->id)->get();
+        return view('admin.usuarios.index', compact('users'));
+    }
+
     public function create()
     {
-        return view ('admin.usuarios.create');
+        $user = new User();
+        $roles = self::haveRoles($user);
+        return view('admin.usuarios.create',compact('user','roles'));
     }
-    public function edit()
+
+    public function edit(User $user)
     {
-        return view ('admin.usuarios.edit');
+        
+        $roles=  Role::all();
+        $roles = $this->haveRoles($user);
+        return view('admin.usuarios.edit',compact('user','roles'));
     }
-	public function store()
+
+    public function store( Request $req )
     {
-        return view ('admin.usuarios.edit');
+        // validate request
+        $req->validate([
+            'name'=>['required'],
+            'lastname'=>['required'],
+            'email'=>['required','email','unique:users'],
+            'password'=>['required','min:6'],
+        ]);
+        // extract data
+        $data = $req->except('_token');
+        
+        //create a new user
+       $user =  User::create($data);
+
+       $user->roles()->sync($data['roles']);
+            // redirect back
+          return back()->with('message', 'Usuario creado exitosamente')->with('type','success');
     }
-    public function destroy()
+
+    public function destroy(User $user)
     {
-        return view ('admin.usuarios.edit');
+        //delete user on database
+        $user->delete();
+        // redirect back
+        return back()->with('message', 'Usuario eliminado exitosamente')->with('type','success');
+       
+    }
+
+
+    public static function haveRoles($user) :array
+    {
+        // get all roles
+        $roles = Role::all();
+        // get user roless
+        $haveRole = $user->roles()->get();
+        // create empty array
+        $data = [];
+        foreach($roles as $key=> $rol) 
+        {
+            //verify if exists users with roles
+			if ($haveRole->contains($rol)) 
+            {
+				$data[$rol->name]['check'] = true;
+
+			}else{
+				$data[$rol->name]['check'] = false;
+			}
+			$data[$rol->name]['id'] = $rol->id;
+		}
+
+        return $data;
+
     }
 }

@@ -7,51 +7,71 @@
 
 @section('content')
 
-<x-card title='Todos los usuarios de la base de datos' btnTxt='CREAR USUARIO' showBtn="{{true}}" url="{{route('usuarios.create')}}">
-
-    <div class='table-responsive'>
-    <table id="example" class="table table-responsive table-hover" >
+<x-card title='Todos los usuarios de la base de datos' btnTxt='CREAR USUARIO' showBtn="{{true}}" url="{{route('user.create')}}">
+<x-mesagge/>
+    <div class='table-'>
+    <table id="example" class="table  table-hover" width='100%' >
 				<thead class="thead-dark">
 					<th class="text-center">#</th>
-					<th class="text-center"width='50%'>Nombre</th>
+					<th class="text-center">Nombre</th>
+					<th class="text-center">Correo</th>
+                    <th class="text-center">Roles</th>
 					{{-- <th class="text-center"width='25%'>Permisos</th> --}}
 					{{-- <th  class="text-center"width='25%'>Fecha de creaci&oacute;n</th>
 					<th  class="text-center"width='25%'>Fecha de actualizaci&oacute;n</th> --}}
-					<th  class="text-center"width='50%'>Opciones</th>
+                    <th class="text-center">Fecha de creacion</th>
+						@if(Auth::user()->can('user.delete') || Auth::user()->can('user.update'))
+					<th  class="text-center">Opciones</th>
+	@endif
 				</thead>
 				<tbody>
 
-					@foreach ($roles as $rol)
+					@foreach ($users as $user)
 					<tr>
-						<td class="text-center">{{ $rol->id }}</td>
-						<td width='50%' class="text-center">{{ $rol->name }}</td>
+						<td class="text-center">{{ $user->id }}</td>
+						<td  class="text-center">{{ $user->name }}</td>
+						<td  class="text-center">{{ $user->email }}</td>
+						<td  class="text-center ">
+							@foreach($user->roles as $role)
+							
+							<span class='bg-dark p-2 font-weight-bold'>{{ $role->name }}</span>
 						
-						{{-- <td width='25%'>{{ $rol->created_at }}</td>
-						<td width='25%'>{{ $rol->updated_at }}</td> --}}
-						<td class="text-center" width='50%'>
-							{{-- @can('eliminar rol') --}}
-								<a href="{{ route('roles.destroy',$rol->id) }}" class="btn btn-danger font-weight-bold" title="">Eliminar</a>
-							{{-- @endcan --}}
-							{{-- @can('modificar rol') --}}
-							<a href="{{ route('roles.edit',$rol->id)}}" class="btn btn-warning font-weight-bold" title="">Editar</a>
-							{{-- @endcan --}}
-							{{-- @can('ver rol') --}}
-							<a href="{{ route('roles.show',$rol->id)}}" class="btn btn-secondary font-weight-bold" title="">Ver</a>
-							{{-- @endcan --}}
+							@endforeach
 						</td>
+                        <td  class="text-center">{{ \Carbon\Carbon::parse($user->created_at)->format('d-m-Y') }}</td>
+
+						{{-- <td width='25%'>{{ $usercreated_at }}</td>
+						<td width='25%'>{{ $userupdated_at }}</td> --}}
+						@if(Auth::user()->can('user.delete') || Auth::user()->can('user.update'))
+                    <td class="text-center" >
+							@can('user.delete')
+								<a href="{{ route('user.destroy',['user'=>$user->id]) }}" class="btn btn-danger font-weight-bold" title="">Eliminar</a>
+							@endcan
+							@can('user.update')
+							<a href="{{ route('user.edit',['user'=>$user->id])}}" class="btn btn-warning font-weight-bold" title="">Editar</a>
+							@endcan
+						
+						</td>
+						@endif
 					</tr>
 					@endforeach
-					
+
 				</tbody>
 
                 <tfoot class="thead-dark">
             <tr>
-               <th class="text-center">#</th>
-					<th class="text-center"width='50%'>Nombre</th>
-					{{-- <th class="text-center"width='25%'>Permisos</th> --}}
-					{{-- <th  class="text-center"width='25%'>Fecha de creaci&oacute;n</th>
-					<th  class="text-center"width='25%'>Fecha de actualizaci&oacute;n</th> --}}
-					<th  class="text-center"width='50%'>Opciones</th>
+
+                <th class="text-center">#</th>
+                <th class="text-center">Nombre</th>
+                <th class="text-center">Correo</th>
+                <th class="text-center">Roles</th>
+                {{-- <th class="text-center"width='25%'>Permisos</th> --}}
+                {{-- <th  class="text-center"width='25%'>Fecha de creaci&oacute;n</th>
+                <th  class="text-center"width='25%'>Fecha de actualizaci&oacute;n</th> --}}
+                <th class="text-center">Fecha de creacion</th>
+	@if(Auth::user()->can('user.delete') || Auth::user()->can('user.update'))
+                <th  class="text-center">Opciones</th>
+					@endif
             </tr>
         </tfoot>
 			</table>
