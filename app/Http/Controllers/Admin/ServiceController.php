@@ -34,7 +34,7 @@ class ServiceController extends Controller
         }
         Service::where('id', '=',$id)->update($datosServicio);
         $service=Service::findOrFail($id);
-        return view ('admin.servicios.edit', compact('service'));
+        return back();
     }
     public function store(Request $request)
     {
