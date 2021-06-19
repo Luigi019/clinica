@@ -42,18 +42,17 @@
 						{{-- <td width='25%'>{{ $rol->created_at }}</td>
 						<td width='25%'>{{ $rol->updated_at }}</td> --}}
 						<td class="text-center" width='25%'>
-							{{-- @can('eliminar rol') --}}
-								<a href="{{ route('servicios.destroy',$service->id) }}" class="btn btn-danger font-weight-bold" title="">Eliminar</a>
-							{{-- @endcan --}}
-							{{-- @can('modificar rol') --}}
+							@can('Eliminar servicios')
+								<a href="{{ route('servicios.delete',$service->id) }}" class="btn btn-danger font-weight-bold" title="">Eliminar</a>
+							@endcan
+							@can('Editar servicios')
 							<a href="{{ route('servicios.edit',$service->id)}}" class="btn btn-warning font-weight-bold" title="">Editar</a>
-							{{-- @endcan --}}
-							{{-- @can('ver rol') --}}
-							{{-- @endcan --}}
+							@endcan
+							
 						</td>
 					</tr>
 					@endforeach
-					
+
 				</tbody>
 
                 <tfoot class="thead-dark">

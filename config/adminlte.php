@@ -248,13 +248,14 @@ return [
         //     'url'  => $prefix.'blog',
         //     'can'  => 'manage-blog',
         // ],
-        ['header'=>'Gestor de contenido'],
+     
 
         [
             'text' => 'Perfil',
             'url'  => $prefix.'settings',
             'icon' => 'fas fa-fw fa-user',
         ],
+        ['header'=>'Gestor de contenido'],
         [
             'text' => 'Servicios',
             'url'  => $prefix.'servicios',
@@ -283,11 +284,14 @@ return [
             ],
 
         ],
+        ['header'=>'Mas opciones'],
         [
             'text'       => 'Olvide mi clave',
             'icon'       => 'fas fa-lock',
             'url'        => '#',
         ],
+
+        ['header'=>'Administracion del sitio'],
 
 
     ],

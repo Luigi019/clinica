@@ -19,7 +19,7 @@
 
     </div>
     <div class='form-group d-flex flex-column'>
-
+<h3>Asignar o Remover roles</h3>
        @foreach($roles as $name => $data)
        <div>
         <input type='checkbox'{{$data['check'] ?'checked' : ''}} name='roles[]' id='role-{{$data["id"]}}' value='{{$data["id"]}}' >

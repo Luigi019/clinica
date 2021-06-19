@@ -6,16 +6,14 @@
 @endsection
 
 @section('content')
-<x-card title='Editar los servicios de la base de datos'>
-    <div class='form-responsive'>
-<form action="{{ url('/admin/servicios/store')}}" method="POST" enctype="multipart/form-data">
+<x-card title='Editar rol {{ $role->name }}'>
+  <x-mesagge/>
+<form action="{{ route('roles.update',['role'=>$role]) }}" method='POST'>
+    @method('PUT')
     @csrf
-    @include ('admin.servicios.form')
+    @include ('admin.roles.form')
 </form>
-
-<br>
-    </div>
+    
 </x-card>
 @endsection
 
-@include('layout.inc.dataTable')

@@ -7,7 +7,7 @@
 
 @section('content')
 
-<x-card title='Todos los usuarios de la base de datos' btnTxt='CREAR USUARIO' showBtn="{{true}}" url="{{route('user.create')}}">
+<x-card title='Todos los usuarios de la base de datos' btnTxt='CREAR USUARIO' showBtn='Crear usuarios' url="{{route('user.create')}}">
 <x-mesagge/>
     <div class='table-'>
     <table id="example" class="table  table-hover" width='100%' >
@@ -20,9 +20,9 @@
 					{{-- <th  class="text-center"width='25%'>Fecha de creaci&oacute;n</th>
 					<th  class="text-center"width='25%'>Fecha de actualizaci&oacute;n</th> --}}
                     <th class="text-center">Fecha de creacion</th>
-						@if(Auth::user()->can('user.delete') || Auth::user()->can('user.update'))
-					<th  class="text-center">Opciones</th>
-	@endif
+                    @if(Auth::user()->can('Eliminar usuarios') || Auth::user()->can('Editar usuarios'))
+                    <th  class="text-center">Opciones</th>
+                        @endif
 				</thead>
 				<tbody>
 
@@ -33,24 +33,24 @@
 						<td  class="text-center">{{ $user->email }}</td>
 						<td  class="text-center ">
 							@foreach($user->roles as $role)
-							
+
 							<span class='bg-dark p-2 font-weight-bold'>{{ $role->name }}</span>
-						
+
 							@endforeach
 						</td>
                         <td  class="text-center">{{ \Carbon\Carbon::parse($user->created_at)->format('d-m-Y') }}</td>
 
 						{{-- <td width='25%'>{{ $usercreated_at }}</td>
 						<td width='25%'>{{ $userupdated_at }}</td> --}}
-						@if(Auth::user()->can('user.delete') || Auth::user()->can('user.update'))
+						@if(Auth::user()->can('Eliminar usuarios') || Auth::user()->can('Editar usuarios'))
                     <td class="text-center" >
-							@can('user.delete')
+							@can('Eliminar usuarios')
 								<a href="{{ route('user.destroy',['user'=>$user->id]) }}" class="btn btn-danger font-weight-bold" title="">Eliminar</a>
 							@endcan
-							@can('user.update')
+							@can('Editar usuarios')
 							<a href="{{ route('user.edit',['user'=>$user->id])}}" class="btn btn-warning font-weight-bold" title="">Editar</a>
 							@endcan
-						
+
 						</td>
 						@endif
 					</tr>
@@ -69,7 +69,7 @@
                 {{-- <th  class="text-center"width='25%'>Fecha de creaci&oacute;n</th>
                 <th  class="text-center"width='25%'>Fecha de actualizaci&oacute;n</th> --}}
                 <th class="text-center">Fecha de creacion</th>
-	@if(Auth::user()->can('user.delete') || Auth::user()->can('user.update'))
+	@if(Auth::user()->can('Eliminar usuarios') || Auth::user()->can('Editar usuarios'))
                 <th  class="text-center">Opciones</th>
 					@endif
             </tr>
