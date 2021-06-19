@@ -24,27 +24,36 @@ class ServiceController extends Controller
         $service=Service::findOrFail($id);
         return view ('admin.servicios.edit', compact('service'));
     }
-    public function update(Request $request, $id)
+    public function update(Request $request, Service $service)
     {
-        $datosServicio=$request->except(["_token", '_method']); 
-        if($request->hasFile('photo')){
-            $service=Service::findOrFail($id);
-            Storage::delete('public/'.$service->photo);
-            $datosServicio['photo']=$request->file('photo')->store('uploads', 'public');
+        $request->validate([
+            'description'=>['required'],
+            'name'=>['required'],
+            'photo' => ['mimes:jpg,png,jpeg', 'image'],
+        ]);
+        $dataService=$request->except(["_token", '_method']); 
+        if($request->hasFile('photo'))
+        {
+            Storage::delete('public/storage/'.$service->photo);
+            $dataService['photo']=$request->file('photo')->store('uploads', 'public');
+            $service->photo = $dataService['photo'];
         }
-        Service::where('id', '=',$id)->update($datosServicio);
-        $service=Service::findOrFail($id);
-        return back();
+        $service->name = $request->name;
+        $service->description = $request->description;
+        
+$service->update();
+        return back()->with('message','Actualizado exitosamnete')->with('type','success');
     }
     public function store(Request $request)
     {
-            $datosServicio=$request->except("_token");
-            if($request->hasFile('photo')){
-                $datosServicio['photo']=$request->file('photo')->store('uploads', 'public');
+            $dataService=$request->except("_token");
+            if($request->hasFile('photo'))
+            {
+                $dataService['photo']=$request->file('photo')->store('uploads', 'public');
             }
            
-            Service::insert($datosServicio);
-            //return response()->json($datosServicio);
+            Service::insert($dataService);
+            //return response()->json($dataService);
             return redirect('admin/servicios')->with('mensaje', 'Servicio creado exitosamente');
     }
     public function destroy($id)
