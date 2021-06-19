@@ -28,6 +28,7 @@ class EmployeeController extends Controller
     {
         $request->validate([
             'name' => ['required', 'alpha'],
+            'position' => ['required', 'string'],
             'email' => ['required', 'email'],
             'photo' => ['mimes:jpg,png,jpeg', 'image'],
         ]);
@@ -50,6 +51,7 @@ class EmployeeController extends Controller
         $request->validate([
             'name' => ['required', 'alpha'],
             'email' => ['required', 'email','unique:employees'],
+            'position' => ['required', 'string'],
             'photo' => ['required', 'mimes:jpg,png,jpeg', 'image'],
         ]);
         // extract data except token

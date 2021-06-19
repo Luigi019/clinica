@@ -19,6 +19,11 @@
 <small>Ejemplo: Hernández</small>
 </div>
 <div class="form-group justify-content-center">
+    <label for="Nombre">Cargo: </label>
+    <input type="text" class="form-control" name="position" id="position" value="{{ isset($employee->position)?$employee->position:'' }}" maxlength="25" onkeydown="return sololetras(event)" required>  
+    <small>Ejemplo: Médico internista</small>
+    </div>
+<div class="form-group justify-content-center">
 <label for="Correo">Correo: </label>
 <input type="email" class="form-control" name="email" value="{{ isset($employee->email)?$employee->email:'' }}" id="email" required>
 <small>Ejemplo: funnywebs0@gmail.com</small>
