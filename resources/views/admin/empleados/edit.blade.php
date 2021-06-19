@@ -6,12 +6,12 @@
 @endsection
 
 @section('content')
-<x-card title='Editar los empleados de la base de datos'>
+<x-card title='Editar empleado de la base de datos'>
     <div class='form-responsive'>
-<form action="{{ url('/admin/empleados/store' . $employee->id)}}" method="POST" enctype="multipart/form-data">
+<form action="{{route('empleados.update' , $employee->id)}}" method="POST" enctype="multipart/form-data">
     @csrf
-    {{method_field('PUT')}}
-    @include ('admin.empleados.form', ['modo'=>'Editar']);
+   {{method_field('PUT')}}
+    @include ('admin.empleados.form', ['modo'=>'Editar'])
 </form>
 
 <br>

@@ -6,12 +6,12 @@
 @endsection
 
 @section('content')
-<x-card title='Editar los servicios de la base de datos'>
+<x-card title='Editar el Servicio de la base de datos'>
     <div class='form-responsive'>
-<form action="{{ url('/admin/servicios/store' . $service->id)}}" method="POST" enctype="multipart/form-data">
+<form action="{{route('servicios.update' , $service->id)}}" method="POST" enctype="multipart/form-data" class="form">
     @csrf
     {{method_field('PUT')}}
-    @include ('admin.servicios.form', ['modo'=>'Editar']);
+    @include ('admin.servicios.form', ['modo'=>'Editar'])
 </form>
 
 <br>

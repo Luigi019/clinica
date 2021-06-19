@@ -23,7 +23,7 @@
 					<div class="text-white">
 						<h2 class="text-white font-weight-bold">
 							<a href="{{route('roles.listar')}}" class="text-white" style="font-weight: bold;">
-							3
+								{{$role->count()}}
 							</a>
 						</h2>
 						<h6 class="text-white">
@@ -53,7 +53,7 @@
 					<div class="text-white">
 						<h2 class="text-white font-weight-bold">
 							<a href="{{route("servicios.listar")}}" class="text-white" style="font-weight: bold;">
-							3
+							{{$service->count()}}
 							</a>
 						</h2>
 						<h6 class="text-white">
@@ -83,7 +83,7 @@
 					<div class="text-white">
 						<h2 class="text-white font-weight-bold">
 							<a href="{{route("user.list")}}" class="text-white" style="font-weight: bold;">
-							10
+							{{ $user->count()}}
 							</a>
 						</h2>
 						<h6 class="text-white">
@@ -104,7 +104,6 @@
 		</div>
 		
 	</div>
-
 		
     <div class="card bg-inverse text-white rounded shadow">
         <div class="card-body">
@@ -112,7 +111,7 @@
                 <div class="text-white">
                     <h2 class="text-white font-weight-bold">
                         <a href="{{route("empleados.listar")}}" class="text-black" style="font-weight: bold;">
-                        3
+							{{$employee->count()}}
                         </a>
                     </h2>
                     <h6 class="text-white">
@@ -137,62 +136,7 @@
 
 
 	
-			<div class="row">
-				
-				
-				<div class="col-lg-6 col-md-12">
-	<div class="card rounded shadow-sm">
-		<div class="card-body">
-			<div class="d-flex">
-				<div>
-					<h4 class="card-title mb-1 font-weight-bold">
-						<span class="lstick d-inline-block align-middle"></span>Estadisticas de Usuarios
-					</h4>
-				</div>
-				<div class="ml-auto">
-					<ul class="list-inline text-right">
-						<li class="list-inline-item">
-							<h5><i class="fa fa-circle mr-1" style="color: #398bf7;"></i>Activo</h5>
-						</li>
-						<li class="list-inline-item">
-							<h5><i class="fa fa-circle mr-1" style="color: #dddddd;"></i>Inactivo</h5>
-						</li>
-					</ul>
-				</div>
-			</div>
-			<div id="barChartPosts" class="position-relative" style="height:300px;"></div>
-		</div>
-	</div>
-</div>
-
-
-				
-				
-				<div class="col-lg-6 col-md-12">
-	<div class="card rounded shadow-sm">
-		<div class="card-body">
-			<div class="d-flex">
-				<div>
-					<h4 class="card-title mb-1 font-weight-bold">
-						<span class="lstick d-inline-block align-middle"></span>Estadisticas de Empleados
-					</h4>
-				</div>
-				<div class="ml-auto">
-					<ul class="list-inline text-right">
-						<li class="list-inline-item">
-							<h5><i class="fa fa-circle mr-1" style="color: #398bf7;"></i>Activo</h5>
-						</li>
-						<li class="list-inline-item">
-							<h5><i class="fa fa-circle mr-1" style="color: #dddddd;"></i>Inactivo</h5>
-						</li>
-					</ul>
-				</div>
-			</div>
-			<div id="barChartUsers" class="position-relative" style="height:300px;"></div>
-		</div>
-	</div>
-</div>
-
+		
         
 <footer>
     <div>

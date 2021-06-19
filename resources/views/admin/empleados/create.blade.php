@@ -10,7 +10,7 @@
     <div class='form-responsive'>
 <form action="{{ url('/admin/empleados/store')}}" method="POST" enctype="multipart/form-data">
     @csrf
-    @include ('admin.empleados.form', ['modo'=>'Crear']);
+    @include ('admin.empleados.form', ['modo'=>'Crear'])
 </form>
 
 <br>

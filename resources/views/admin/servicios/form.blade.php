@@ -1,12 +1,23 @@
-<a href="{{route("servicios.listar")}}">Volver al menu anterior</a><br>
+
+<a class="btn btn-primary" href="{{route("servicios.listar")}} ">Volver al menu anterior</a><br><br>
+<div class="form-group justify-content-center">
+<div class="form-group justify-content-center">
 <label for="Nombre">Nombre del Servicio: </label>
-<input type="text" name="name" value="{{  isset($service->name)?$service->name:'' }}" id="name" required>  <br>
-<label for="Descripción">Descripción del Servicio: </label> <br>
-<input type="text" class="form-control" value="{{  isset($service->description)?$service->description:'' }}" name="description" id="description" rows="3" required> <br>
-<label for="Foto">Foto: </label>
+<input type="text" class="form-control" name="name" value="{{  isset($service->name)?$service->name:'' }}" id="name" required>  
+<small>Ejemplo: Medicina Interna</small>
+</div>
+<div class="form-group justify-content-center">
+<label for="Descripción">Descripción del Servicio: </label> 
+<textarea class="form-control form-control-lg" name="description" id="description" cols="3" rows="3">{{  isset($service->description)?$service->description:'' }}</textarea>
+<small>Ejemplo: Consultas médicas y teleconsultas al alcance de la mano</small>
+</div>
+<div class="form-group justify-content-center">
+<label class="mt-3 mb-3" for="Foto">Foto: </label>
 @if (isset($service->photo))
-<img src="{{ asset('storage'). '/' .$service->photo}}" alt="" style="max-height: 150px; max-width: 150px;"><br>
+<img class="img-thumbnail img-fluid mt-3 mb-3" src="{{ asset('storage'). '/' .$service->photo}}" alt="" style="max-height: 150px; max-width: 150px;">
 @endif
-<input type="file" value="" name="photo" id="photo" rquired> <br>
-<input type="submit" value="{{$modo}} datos" >
-<input type="reset" value="Restablecer"> 
+<input type="file" class="form-control-file" value="" name="photo" id="photo"> 
+</div>
+</div>
+<input  class="btn btn-success" type="submit" value="{{$modo}} datos" >
+<input  class="btn btn-secondary" type="reset" value="Restablecer"> 

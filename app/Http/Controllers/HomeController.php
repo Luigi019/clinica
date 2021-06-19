@@ -1,7 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Service;
+use App\Models\Employee;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -15,6 +17,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('welcome');
+        $employee = Employee::all();
+
+        $service = Service::all();
+        return view('welcome', compact('service', 'employee'));
     }
 }

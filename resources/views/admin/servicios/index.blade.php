@@ -31,7 +31,7 @@
 						<td class="text-center">{{ $service->id }}</td>
 						<td width='25%' class="text-center">{{ $service->name }}</td>
 						<td width='25%' class="text-center">{{ $service->description }}</td>
-						<td width='25%' class="text-center"><img src="{{ asset('storage'). '/' .$service->photo}}" alt="Foto de {{ $service->name }}" style="max-height: 150px; max-width: 150px;"></td>
+						<td width='25%' class="text-center"><img class="img-thumbnail img-fluid" src="{{ asset('storage'). '/' .$service->photo}}" alt="Foto de {{ $service->name }}" style="max-height: 150px; max-width: 150px;"></td>
 						{{-- <td width='25%'>{{ $rol->created_at }}</td>
 						<td width='25%'>{{ $rol->updated_at }}</td> --}}
 						<td class="text-center" width='25%'>
@@ -42,7 +42,6 @@
 							<a href="{{ route('servicios.edit',$service->id)}}" class="btn btn-warning font-weight-bold" title="">Editar</a>
 							{{-- @endcan --}}
 							{{-- @can('ver rol') --}}
-							<a href="{{ route('servicios.show',$service->id)}}" class="btn btn-secondary font-weight-bold" title="">Ver</a>
 							{{-- @endcan --}}
 						</td>
 					</tr>

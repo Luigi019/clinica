@@ -36,7 +36,6 @@
 							<a href="{{ route('roles.edit',$rol->id)}}" class="btn btn-warning font-weight-bold" title="">Editar</a>
 							{{-- @endcan --}}
 							{{-- @can('ver rol') --}}
-							<a href="{{ route('roles.show',$rol->id)}}" class="btn btn-secondary font-weight-bold" title="">Ver</a>
 							{{-- @endcan --}}
 						</td>
 					</tr>
