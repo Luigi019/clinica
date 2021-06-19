@@ -8,10 +8,17 @@
 @section('content')
 
 <x-card title='Todos los empleados de la base de datos' btnTxt='CREAR EMPLEADO' showBtn="{{true}}" url="{{route('empleados.create')}}">
-@if (Session::has('mensaje'))
-{{	Session::get('mensaje')}}
+	@if (Session::has('mensaje'))
+	<div class="alert alert-success alert-dismissible" role="alert">
+		@if (Session::has('mensaje'))
+	{{	Session::get('mensaje')}}
+		
 	
-@endif
+	<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+	<span aria-hidden="true">&times;</span>	
+	</button>
+	</div>
+	@endif
     <div class='table-responsive'>
     <table id="example" class="table table-responsive table-hover table-light" >
 				<thead class="thead-dark">
@@ -70,7 +77,12 @@
             </tr>
         </tfoot>
 			</table>
+			<div class="float-right">
+				{!! $employees->links() !!}
+			</div>
+			
     </div>
+
 </x-card>
 @endsection
 

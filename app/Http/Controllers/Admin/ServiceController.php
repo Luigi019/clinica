@@ -26,6 +26,14 @@ class ServiceController extends Controller
     }
     public function update(Request $request, $id)
     {
+        $campos=[
+            'name'=>'required|string|max:100',
+            'description'=>'required|string|max:1000',
+    ];
+    $mensaje=[
+        'required'=>'Todos los campos son obligatorios'
+    ];
+    $this->validate($request, $campos, $mensaje);
         $datosServicio=$request->except(["_token", '_method']); 
         if($request->hasFile('photo')){
             $service=Service::findOrFail($id);
@@ -34,10 +42,19 @@ class ServiceController extends Controller
         }
         Service::where('id', '=',$id)->update($datosServicio);
         $service=Service::findOrFail($id);
-        return back();
+        return redirect('admin/servicios')->with('mensaje', 'Servicio modificado exitosamente');;
     }
     public function store(Request $request)
     {
+        $campos=[
+            'name'=>'required|string|max:100',
+            'description'=>'required|string|max:1000',
+            'photo'=>'required|max:100000|mimes:jpeg,png,jpg',
+    ];
+    $mensaje=[
+        'required'=>'Todos los campos son obligatorios'
+    ];
+    $this->validate($request, $campos, $mensaje);
             $datosServicio=$request->except("_token");
             if($request->hasFile('photo')){
                 $datosServicio['photo']=$request->file('photo')->store('uploads', 'public');
