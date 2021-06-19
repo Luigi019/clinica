@@ -7,9 +7,18 @@
 
 @section('content')
 
-<x-card title='Todos los servicios de la base de datos' btnTxt='CREAR SERVICIO' showBtn="Crear servicios" url="{{route('servicios.create')}}">
-	<x-mesagge />
-
+<x-card title='Todos los servicios de la base de datos' btnTxt='CREAR SERVICIO' showBtn="{{true}}" url="{{route('servicios.create')}}">
+	@if (Session::has('mensaje'))
+	<div class="alert alert-success alert-dismissible" role="alert">
+		
+	{{	Session::get('mensaje')}}
+		
+	
+	<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+	<span aria-hidden="true">&times;</span>	
+	</button>
+	</div>
+	@endif
     <div class='table-responsive'>
     <table id="example" class="table table-responsive table-hover" >
 				<thead class="thead-dark">
@@ -59,6 +68,10 @@
             </tr>
         </tfoot>
 			</table>
+			<div class="float-right">
+				{!! $Services->links() !!}
+		</div>
+	
     </div>
 </x-card>
 @endsection

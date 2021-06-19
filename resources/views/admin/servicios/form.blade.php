@@ -1,5 +1,16 @@
 
 <a class="btn btn-primary" href="{{route("servicios.listar")}} ">Volver al menu anterior</a><br><br>
+@if (count($errors)>0)
+    <div class="alert alert-danger" role="alert">
+        <ul>
+        @foreach($errors->all() as  $error)
+       <li> {{$error}} </li>
+        @endforeach    
+        </ul>
+
+    </div>
+    
+@endif
 <div class="form-group justify-content-center">
 <div class="form-group justify-content-center">
 <label for="Nombre">Nombre del Servicio: </label>

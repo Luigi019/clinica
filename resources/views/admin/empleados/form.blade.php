@@ -1,4 +1,12 @@
 <a class="btn btn-primary" href="{{route("empleados.listar")}}">Volver al menu anterior</a><br><br>
+@if (count($errors)>0)
+    <div class="alert alert-danger" role="alert">
+        @foreach($errors->all() as  $error)
+        {{$error}}
+        @endforeach
+    </div>
+    
+@endif
 <div class="form-group justify-content-center">
 <div class="form-group justify-content-center">
 <label for="Nombre">Nombre: </label>
@@ -10,6 +18,11 @@
 <input type="text" class="form-control" name="lastname" value="{{ isset($employee->lastname)?$employee->lastname:'' }}" id="lastname" required>   
 <small>Ejemplo: Hernández</small>
 </div>
+<div class="form-group justify-content-center">
+    <label for="Nombre">Cargo: </label>
+    <input type="text" class="form-control" name="position" id="position" value="{{ isset($employee->position)?$employee->position:'' }}" maxlength="25" onkeydown="return sololetras(event)" required>  
+    <small>Ejemplo: Médico internista</small>
+    </div>
 <div class="form-group justify-content-center">
 <label for="Correo">Correo: </label>
 <input type="email" class="form-control" name="email" value="{{ isset($employee->email)?$employee->email:'' }}" id="email" required>
