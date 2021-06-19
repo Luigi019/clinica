@@ -29,15 +29,18 @@ class EmployeeController extends Controller
         $request->validate([
             'name' => ['required', 'alpha'],
             'email' => ['required', 'email'],
-            'photo' => ['required', 'mimes:jpg,png,jpeg', 'image'],
+            'photo' => ['mimes:jpg,png,jpeg', 'image'],
         ]);
         $dataEmployee = $request->except(["_token", '_method']);
         if ($request->hasFile('photo')) {
        
             Storage::delete('public/' . $employee->photo);
             $dataEmployee['photo'] = $request->file('photo')->store('uploads', 'public');
+            $employee->photo = $dataEmployee['photo'];
         }
-    
+    $employee->name = $request->name;
+    $employee->email = $request->email;
+    $employee->update();
         return back()->with('message','Datos actualizado exitosamente')->with('type','success');
     }
     public function store(Request $request)
@@ -46,7 +49,7 @@ class EmployeeController extends Controller
         // validando datos enviados
         $request->validate([
             'name' => ['required', 'alpha'],
-            'email' => ['required', 'email'],
+            'email' => ['required', 'email','unique:employees'],
             'photo' => ['required', 'mimes:jpg,png,jpeg', 'image'],
         ]);
         // extract data except token
