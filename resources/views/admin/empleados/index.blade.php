@@ -28,7 +28,7 @@
 					<tr>
 						<td class="text-center">{{ $employee->id }}</td>
 						<td width='20%' class="text-center">{{ $employee->name }}</td>
-						<td width='20%' class="te2t-center">{{ $employee->lastname }}</td>
+						<td width='20%' class="text-center">{{ $employee->lastname }}</td>
 						<td width='20%' class="text-center">{{ $employee->email }}</td>
 						<td width='20%' class="text-center">{{ $employee->photo }}</td>
 						{{-- <td width='25%'>{{ $rol->created_at }}</td>

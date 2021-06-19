@@ -8,8 +8,9 @@
 @section('content')
 <x-card title='Editar los empleados de la base de datos'>
     <div class='form-responsive'>
-<form action="{{ url('/admin/empleados/store')}}" method="POST" enctype="multipart/form-data">
+<form action="{{ url('/admin/empleados/store' . $employee->id)}}" method="POST" enctype="multipart/form-data">
     @csrf
+    {{method_field('PUT')}}
     @include ('admin.empleados.form')
 </form>
 

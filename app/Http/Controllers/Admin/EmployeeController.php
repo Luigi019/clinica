@@ -21,9 +21,13 @@ class EmployeeController extends Controller
         $employee=Employee::findOrFail($id);
         return view ('admin.empleados.edit', compact('employee'));
     }
-    public function update()
+    public function update(Request $request, $id)
     {
+        $datosEmpleado=$request->except(["_token", '_method']); 
+        Employee::where('id', '=',$id)->update($datosEmpleado);
 
+        $employee=Employee::findOrFail($id);
+        return view ('admin.empleados.edit', compact('employee'));
     }
     public function store(Request $request)
     {

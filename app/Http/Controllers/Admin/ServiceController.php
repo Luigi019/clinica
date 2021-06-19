@@ -19,8 +19,16 @@ class ServiceController extends Controller
     }
     public function edit($id)
     {
-        $service=Service::findOrFail($id);
+        $datosServicio=Service::findOrFail($id);
         return view ('admin.servicios.edit', compact('service'));
+    }
+    public function update(Request $request, $id)
+    {
+        $datosServicio=$request->except(["_token", '_method']); 
+        Service::where('id', '=',$id)->update($datosServicio);
+
+        $datosServicio=Service::findOrFail($id);
+        return view ('admin.empleados.edit', compact('employee'));
     }
     public function store(Request $request)
     {
