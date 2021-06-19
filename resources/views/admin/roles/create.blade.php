@@ -8,6 +8,7 @@
 @section('content')
 
 <x-card title='CREA UN NUEVO ROl' >
+    <x-mesagge />
 {!! Form::open(['route'=>'roles.store','method'=>'POST']) !!}
 @include('admin.roles.form',['value_temporal_permisos_checkbox'=>null])
 {!! Form::close() !!}

@@ -7,6 +7,7 @@
 
 @section('content')
 <x-card title='Crear los servicios de la base de datos'>
+    <x-mesagge />
     <div class='form-responsive'>
 <form action="{{ url('/admin/servicios/store')}}" method="POST" enctype="multipart/form-data">
     @csrf

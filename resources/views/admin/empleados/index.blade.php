@@ -8,10 +8,7 @@
 @section('content')
 
 <x-card title='Todos los empleados de la base de datos' btnTxt='CREAR EMPLEADO' showBtn="Crear empleados" url="{{route('empleados.create')}}">
-@if (Session::has('mensaje'))
-{{	Session::get('mensaje')}}
-	
-@endif
+<x-mesagge/>
     <div class='table-responsive'>
     <table id="dataTable" class="table table-responsive table-hover table-light" >
 				<thead class="thead-dark">

@@ -8,7 +8,7 @@
 @section('content')
 
 <x-card title='Todos los roles de la base de datos' btnTxt='CREAR ROL' showBtn="Crear roles" url="{{route('roles.create')}}">
-
+	<x-mesagge />
     <div class='table-responsive'>
     <table id="example" class="table table-responsive table-hover" >
 				<thead class="thead-dark">

@@ -7,6 +7,7 @@
 
 @section('content')
 <x-card title='Editar el Servicio de la base de datos'>
+    <x-mesagge />
     <div class='form-responsive'>
 <form action="{{route('servicios.update' , $service->id)}}" method="POST" enctype="multipart/form-data" class="form">
     @csrf

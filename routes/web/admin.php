@@ -23,11 +23,11 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     //Routes for employee
    Route::prefix('empleados')->group(function () {
     Route::get('/', [EmployeeController::class, 'index'])->name('empleados.listar');
-    Route::get('/edit{employee}', [EmployeeController::class, 'edit'])->name('empleados.edit');
+    Route::get('/edit/{employee}', [EmployeeController::class, 'edit'])->name('empleados.edit');
     Route::get('/create', [EmployeeController::class, 'create'])->name('empleados.create');
     Route::post('/store', [EmployeeController::class, 'store'])->name('empleados.store');
-    Route::put('/update{employee}', [EmployeeController::class, 'update'])->name('empleados.update');
-    Route::get('/delete{employee}', [EmployeeController::class, 'destroy'])->name('empleados.destroy');
+    Route::put('/update/{employee}', [EmployeeController::class, 'update'])->name('empleados.update');
+    Route::get('/delete/{employee}', [EmployeeController::class, 'destroy'])->name('empleados.destroy');
     Route::get('/ver{employee}', [EmployeeController::class, 'create'])->name('empleados.show');
    });
 
@@ -49,12 +49,12 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
 
     Route::group(['prefix' => 'servicios'], function () {
         Route::get('/', [ServiceController::class, 'index'])->name('servicios.listar');
-        Route::get('/edit{service}', [ServiceController::class, 'edit'])->name('servicios.edit');
+        Route::get('/edit/{service}', [ServiceController::class, 'edit'])->name('servicios.edit');
         Route::get('/create', [ServiceController::class, 'create'])->name('servicios.create');
         Route::post('/store', [ServiceController::class, 'store'])->name('servicios.store');
-        Route::put('u/update{service}', [ServiceController::class, 'update'])->name('servicios.update');
+        Route::put('u/update/{service}', [ServiceController::class, 'update'])->name('servicios.update');
         Route::get('/delete{service}', [ServiceController::class, 'destroy'])->name('servicios.delete');
-        Route::get('/ver{service}', [ServiceController::class, 'create'])->name('servicios.show');
+        Route::get('/ver/{service}', [ServiceController::class, 'create'])->name('servicios.show');
     });
 
     //Rutas para roles

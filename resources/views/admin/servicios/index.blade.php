@@ -8,10 +8,8 @@
 @section('content')
 
 <x-card title='Todos los servicios de la base de datos' btnTxt='CREAR SERVICIO' showBtn="Crear servicios" url="{{route('servicios.create')}}">
-	@if (Session::has('mensaje'))
-	{{	Session::get('mensaje')}}
+	<x-mesagge />
 
-	@endif
     <div class='table-responsive'>
     <table id="example" class="table table-responsive table-hover" >
 				<thead class="thead-dark">
@@ -31,7 +29,7 @@
 						<td class="text-center">{{ $service->id }}</td>
 						<td width='25%' class="text-center">{{ $service->name }}</td>
 						<td width='25%' class="text-center">{{ $service->description }}</td>
-						<td width='25%' class="text-center"><img src="{{ asset('storage'). '/' .$service->photo}}" alt="Foto de {{ $service->name }}" style="max-height: 150px; max-width: 150px;"></td>
+						<td width='25%' class="text-center"><img class="img-thumbnail img-fluid" src="{{ asset('storage'). '/' .$service->photo}}" alt="Foto de {{ $service->name }}" style="max-height: 150px; max-width: 150px;"></td>
 						{{-- <td width='25%'>{{ $rol->created_at }}</td>
 						<td width='25%'>{{ $rol->updated_at }}</td> --}}
 						<td class="text-center" width='25%'>
@@ -41,9 +39,7 @@
 							@can('Editar servicios')
 							<a href="{{ route('servicios.edit',$service->id)}}" class="btn btn-warning font-weight-bold" title="">Editar</a>
 							@endcan
-							@can('Crear servicios')
-							<a href="{{ route('servicios.show',$service->id)}}" class="btn btn-secondary font-weight-bold" title="">Ver</a>
-							@endcan
+							
 						</td>
 					</tr>
 					@endforeach
