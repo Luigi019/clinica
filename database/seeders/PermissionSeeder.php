@@ -157,13 +157,13 @@ class PermissionSeeder extends Seeder
         for($i = 0 ;  $i < count($permissons) ; $i++)
         {
            
-                $admin->permissions()->sync($permissons[$i]['id']);
-                $role->syncPermissions($permissons[$i]['id']);
+            $role->syncPermissions($permissons[$i]['id']);
+            $admin->givePermissionTo($permissons[$i]['id']);
             
         }
 
 
-
+     
 
     }
 }

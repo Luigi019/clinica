@@ -40,16 +40,16 @@
 								<input class="btn btn-danger font-weight-bold" type="submit" onclick="return confirm('¿Quieres eliminar este registro?')"
 								 value="Borrar">
 							</form>
-								
+
 							@endcan
 							@can('Editar empleados')
 							<a href="{{ route('empleados.edit',$employee->id)}}" width="33%" class="btn btn-warning font-weight-bold" title="">Editar</a>
 							@endcan
-							
+
 						</td>
 					</tr>
 					@endforeach
-					
+
 				</tbody>
 
                 <tfoot class="thead-dark">
@@ -59,9 +59,7 @@
 				<th class="text-center"width='20%'>Apellido</th>
 				<th class="text-center"width='20%'>Correo</th>
 				<th class="text-center"width='20%'>Foto</th>
-				{{-- <th class="text-center"width='25%'>Permisos</th> --}}
-				{{-- <th  class="text-center"width='25%'>Fecha de creaci&oacute;n</th>
-				<th  class="text-center"width='25%'>Fecha de actualizaci&oacute;n</th> --}}
+
 				<th  class="text-center"width='20%'>Opciones</th>
             </tr>
         </tfoot>

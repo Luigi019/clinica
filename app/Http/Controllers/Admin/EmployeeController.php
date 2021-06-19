@@ -11,6 +11,7 @@ class EmployeeController extends Controller
 {
     public function index()
     {
+       
         $datos['employees'] = Employee::paginate(5);
         return view('admin.empleados.index', $datos);
     }
@@ -33,7 +34,7 @@ class EmployeeController extends Controller
         ]);
         $dataEmployee = $request->except(["_token", '_method']);
         if ($request->hasFile('photo')) {
-       
+
             Storage::delete('public/' . $employee->photo);
             $dataEmployee['photo'] = $request->file('photo')->store('uploads', 'public');
             $employee->photo = $dataEmployee['photo'];
@@ -62,7 +63,7 @@ class EmployeeController extends Controller
             $dataEmployee['photo'] = $request->file('photo')->store('uploads', 'public');
         }
 
-        // create data 
+        // create data
         // creando datos
         Employee::create($dataEmployee);
 
@@ -70,16 +71,16 @@ class EmployeeController extends Controller
     }
     public function destroy(Employee $employee)
     {
-   
-        // delete file 
-        if (Storage::delete('public/storage/' . $employee->photo)) 
-           
+
+        // delete file
+        if (Storage::delete('public/storage/' . $employee->photo))
+
             //delete employee
             $employee->delete();
-        
+
         else
         $employee->delete();
- 
+
         return back()->with('message', 'Empleado eliminado exitosamente')->with('type','info');
     }
 }
