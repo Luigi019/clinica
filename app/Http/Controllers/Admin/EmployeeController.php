@@ -49,7 +49,7 @@ class EmployeeController extends Controller
         // validando datos enviados
         $request->validate([
             'name' => ['required', 'alpha'],
-            'email' => ['required', 'email'],
+            'email' => ['required', 'email','unique:employees'],
             'photo' => ['required', 'mimes:jpg,png,jpeg', 'image'],
         ]);
         // extract data except token
