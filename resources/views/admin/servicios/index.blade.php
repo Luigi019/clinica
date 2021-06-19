@@ -8,35 +8,41 @@
 @section('content')
 
 <x-card title='Todos los servicios de la base de datos' btnTxt='CREAR SERVICIO' showBtn="{{true}}" url="{{route('servicios.create')}}">
-
+	@if (Session::has('mensaje'))
+	{{	Session::get('mensaje')}}
+		
+	@endif
     <div class='table-responsive'>
     <table id="example" class="table table-responsive table-hover" >
 				<thead class="thead-dark">
 					<th class="text-center">#</th>
-					<th class="text-center"width='50%'>Nombre</th>
+					<th class="text-center"width='25%'>Nombre</th>
+					<th class="text-center"width='25%'>Descripción</th>
+					<th class="text-center"width='25%'>Foto</th>
 					{{-- <th class="text-center"width='25%'>Permisos</th> --}}
 					{{-- <th  class="text-center"width='25%'>Fecha de creaci&oacute;n</th>
 					<th  class="text-center"width='25%'>Fecha de actualizaci&oacute;n</th> --}}
-					<th  class="text-center"width='50%'>Opciones</th>
+					<th  class="text-center"width='25%'>Opciones</th>
 				</thead>
 				<tbody>
 
-					@foreach ($roles as $rol)
+					@foreach ($Services as $service)
 					<tr>
-						<td class="text-center">{{ $rol->id }}</td>
-						<td width='50%' class="text-center">{{ $rol->name }}</td>
-						
+						<td class="text-center">{{ $service->id }}</td>
+						<td width='25%' class="text-center">{{ $service->name }}</td>
+						<td width='25%' class="text-center">{{ $service->description }}</td>
+						<td width='25%' class="text-center"><img src="{{ asset('storage'). '/' .$service->photo}}" alt="Foto de {{ $service->name }}" style="max-height: 150px; max-width: 150px;"></td>
 						{{-- <td width='25%'>{{ $rol->created_at }}</td>
 						<td width='25%'>{{ $rol->updated_at }}</td> --}}
-						<td class="text-center" width='50%'>
+						<td class="text-center" width='25%'>
 							{{-- @can('eliminar rol') --}}
-								<a href="{{ route('roles.destroy',$rol->id) }}" class="btn btn-danger font-weight-bold" title="">Eliminar</a>
+								<a href="{{ route('servicios.destroy',$service->id) }}" class="btn btn-danger font-weight-bold" title="">Eliminar</a>
 							{{-- @endcan --}}
 							{{-- @can('modificar rol') --}}
-							<a href="{{ route('roles.edit',$rol->id)}}" class="btn btn-warning font-weight-bold" title="">Editar</a>
+							<a href="{{ route('servicios.edit',$service->id)}}" class="btn btn-warning font-weight-bold" title="">Editar</a>
 							{{-- @endcan --}}
 							{{-- @can('ver rol') --}}
-							<a href="{{ route('roles.show',$rol->id)}}" class="btn btn-secondary font-weight-bold" title="">Ver</a>
+							<a href="{{ route('servicios.show',$service->id)}}" class="btn btn-secondary font-weight-bold" title="">Ver</a>
 							{{-- @endcan --}}
 						</td>
 					</tr>
@@ -46,12 +52,14 @@
 
                 <tfoot class="thead-dark">
             <tr>
-               <th class="text-center">#</th>
-					<th class="text-center"width='50%'>Nombre</th>
-					{{-- <th class="text-center"width='25%'>Permisos</th> --}}
-					{{-- <th  class="text-center"width='25%'>Fecha de creaci&oacute;n</th>
-					<th  class="text-center"width='25%'>Fecha de actualizaci&oacute;n</th> --}}
-					<th  class="text-center"width='50%'>Opciones</th>
+				<th class="text-center">#</th>
+				<th class="text-center"width='25%'>Nombre</th>
+				<th class="text-center"width='25%'>Descripción</th>
+				<th class="text-center"width='25%'>Foto</th>
+				{{-- <th class="text-center"width='25%'>Permisos</th> --}}
+				{{-- <th  class="text-center"width='25%'>Fecha de creaci&oacute;n</th>
+				<th  class="text-center"width='25%'>Fecha de actualizaci&oacute;n</th> --}}
+				<th  class="text-center"width='25%'>Opciones</th>
             </tr>
         </tfoot>
 			</table>

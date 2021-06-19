@@ -11,7 +11,7 @@
 <form action="{{ url('/admin/empleados/store' . $employee->id)}}" method="POST" enctype="multipart/form-data">
     @csrf
     {{method_field('PUT')}}
-    @include ('admin.empleados.form')
+    @include ('admin.empleados.form', ['modo'=>'Editar']);
 </form>
 
 <br>

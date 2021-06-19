@@ -8,7 +8,10 @@
 @section('content')
 
 <x-card title='Todos los empleados de la base de datos' btnTxt='CREAR EMPLEADO' showBtn="{{true}}" url="{{route('empleados.create')}}">
-
+@if (Session::has('mensaje'))
+{{	Session::get('mensaje')}}
+	
+@endif
     <div class='table-responsive'>
     <table id="example" class="table table-responsive table-hover table-light" >
 				<thead class="thead-dark">
@@ -30,7 +33,7 @@
 						<td width='20%' class="text-center">{{ $employee->name }}</td>
 						<td width='20%' class="text-center">{{ $employee->lastname }}</td>
 						<td width='20%' class="text-center">{{ $employee->email }}</td>
-						<td width='20%' class="text-center">{{ $employee->photo }}</td>
+						<td width='20%' class="text-center"><img src="{{ asset('storage'). '/' .$employee->photo}}" alt="Foto de {{ $employee->name }}" style="max-height: 150px; max-width: 150px;"></td>
 						{{-- <td width='25%'>{{ $rol->created_at }}</td>
 						<td width='25%'>{{ $rol->updated_at }}</td> --}}
 						<td class="text-center" width='20%'>
