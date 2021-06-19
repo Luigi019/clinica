@@ -7,10 +7,10 @@
 
 @section('content')
 
-<x-card title='Todos los servicios de la base de datos' btnTxt='CREAR SERVICIO' showBtn="{{true}}" url="{{route('servicios.create')}}">
+<x-card title='Todos los servicios de la base de datos' btnTxt='CREAR SERVICIO' showBtn="Crear servicios" url="{{route('servicios.create')}}">
 	@if (Session::has('mensaje'))
 	{{	Session::get('mensaje')}}
-		
+
 	@endif
     <div class='table-responsive'>
     <table id="example" class="table table-responsive table-hover" >
@@ -35,19 +35,19 @@
 						{{-- <td width='25%'>{{ $rol->created_at }}</td>
 						<td width='25%'>{{ $rol->updated_at }}</td> --}}
 						<td class="text-center" width='25%'>
-							{{-- @can('eliminar rol') --}}
-								<a href="{{ route('servicios.destroy',$service->id) }}" class="btn btn-danger font-weight-bold" title="">Eliminar</a>
-							{{-- @endcan --}}
-							{{-- @can('modificar rol') --}}
+							@can('Eliminar servicios')
+								<a href="{{ route('servicios.delete',$service->id) }}" class="btn btn-danger font-weight-bold" title="">Eliminar</a>
+							@endcan
+							@can('Editar servicios')
 							<a href="{{ route('servicios.edit',$service->id)}}" class="btn btn-warning font-weight-bold" title="">Editar</a>
-							{{-- @endcan --}}
-							{{-- @can('ver rol') --}}
+							@endcan
+							@can('Crear servicios')
 							<a href="{{ route('servicios.show',$service->id)}}" class="btn btn-secondary font-weight-bold" title="">Ver</a>
-							{{-- @endcan --}}
+							@endcan
 						</td>
 					</tr>
 					@endforeach
-					
+
 				</tbody>
 
                 <tfoot class="thead-dark">

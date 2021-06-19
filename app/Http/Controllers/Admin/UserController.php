@@ -37,7 +37,8 @@ class UserController extends Controller
 
     public function index()
     {
-      
+
+
         $users = User::where('id','!=',Auth::user()->id)->get();
         return view('admin.usuarios.index', compact('users'));
     }
@@ -51,8 +52,6 @@ class UserController extends Controller
 
     public function edit(User $user)
     {
-        
-        $roles=  Role::all();
         $roles = $this->haveRoles($user);
         return view('admin.usuarios.edit',compact('user','roles'));
     }
@@ -68,7 +67,7 @@ class UserController extends Controller
         ]);
         // extract data
         $data = $req->except('_token');
-        
+
         //create a new user
        $user =  User::create($data);
 
@@ -83,7 +82,7 @@ class UserController extends Controller
         $user->delete();
         // redirect back
         return back()->with('message', 'Usuario eliminado exitosamente')->with('type','success');
-       
+
     }
 
 
@@ -95,10 +94,10 @@ class UserController extends Controller
         $haveRole = $user->roles()->get();
         // create empty array
         $data = [];
-        foreach($roles as $key=> $rol) 
+        foreach($roles as $key=> $rol)
         {
             //verify if exists users with roles
-			if ($haveRole->contains($rol)) 
+			if ($haveRole->contains($rol))
             {
 				$data[$rol->name]['check'] = true;
 

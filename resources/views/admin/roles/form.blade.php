@@ -6,12 +6,13 @@
 <fieldset class="form-group">
 	<hr>
 	<h3>Permisos</h3>
-	@foreach ($permission_check as $key=>$permiso)
+	@foreach ($roles as $key=>$permiso)
 
 	<ul>
 		<li>
-			{!! Form::label('permisos', $key, ['class'=>'font-weight-bold']) !!}
-			{!! Form::checkbox('permission[]', $permiso['id'], $permiso['check'],['class'=>'font-weight-bold']) !!}
+            {!! Form::checkbox('permission[]', $permiso['id'], $permiso['check'],['class'=>'font-weight-bold','id'=>$permiso['id']]) !!}
+			{!! Form::label($permiso["id"], $key, ['class'=>'font-weight-bold']) !!}
+			
 		</li>
 	</ul>
 

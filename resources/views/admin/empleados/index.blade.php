@@ -7,13 +7,13 @@
 
 @section('content')
 
-<x-card title='Todos los empleados de la base de datos' btnTxt='CREAR EMPLEADO' showBtn="{{true}}" url="{{route('empleados.create')}}">
+<x-card title='Todos los empleados de la base de datos' btnTxt='CREAR EMPLEADO' showBtn="Crear empleados" url="{{route('empleados.create')}}">
 @if (Session::has('mensaje'))
 {{	Session::get('mensaje')}}
 	
 @endif
     <div class='table-responsive'>
-    <table id="example" class="table table-responsive table-hover table-light" >
+    <table id="dataTable" class="table table-responsive table-hover table-light" >
 				<thead class="thead-dark">
 					<th class="text-center">#</th>
 					<th class="text-center"width='20%'>Nombre</th>
@@ -37,20 +37,18 @@
 						{{-- <td width='25%'>{{ $rol->created_at }}</td>
 						<td width='25%'>{{ $rol->updated_at }}</td> --}}
 						<td class="text-center" width='20%'>
-							{{-- @can('eliminar rol') --}}
+							@can('Eliminar empleados')
 							<form action="{{ route('empleados.destroy',$employee->id) }}" method="GET">
 								@csrf
 								<input class="btn btn-danger font-weight-bold" type="submit" onclick="return confirm('¿Quieres eliminar este registro?')"
 								 value="Borrar">
 							</form>
 								
-							{{-- @endcan --}}
-							{{-- @can('modificar rol') --}}
+							@endcan
+							@can('Editar empleados')
 							<a href="{{ route('empleados.edit',$employee->id)}}" width="33%" class="btn btn-warning font-weight-bold" title="">Editar</a>
-							{{-- @endcan --}}
-							{{-- @can('ver rol') --}}
-							<a href="{{ route('empleados.show',$employee->id)}}" width="33%" class="btn btn-secondary font-weight-bold" title="">Ver</a>
-							{{-- @endcan --}}
+							@endcan
+							
 						</td>
 					</tr>
 					@endforeach
