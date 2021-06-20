@@ -1,56 +1,47 @@
-
-<!-- Testimonials-->
+     @section('css')
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.css">
+@endsection
 <section class="testimonials text-center bg-light">
+    <h1 class='mb-5 '>Equipo de primera linea</h1>
     <div class="container">
-        <h2 class="mb-5">Equipo de primera linea</h2>
 
-    </div>
-
-    @foreach ($employee as $employee)
-    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-      <ol class="carousel-indicators">
-        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-    </ol>
-    <div class="carousel-inner">
-        {{-- RECORRER ARREGLO DE PERSONAS --}}
-        <div class="carousel-item active" d-flex>
-          <div class="row">
-            <div class="col-lg-4">
-                <div class="testimonial-item mx-auto mb-5 mb-lg-0">
-                    <img class="img-fluid rounded-circle mb-3" src="{{ asset('storage'). '/' .$employee->photo}}" alt="Foto de {{ $employee->name }}" />
-                    <h5>{{ $employee->name }} {{ $employee->lastname }}</h5>
-                    <!--<p class="font-weight-light mb-0">"This is fantastic! Thanks so much guys!"</p> -->
-                </div>
-            </div>
+        <div class="glider">
+        
+        @foreach ($employee as $employee)
+           <div class=''>
+           <div class='img-fluid'>
+           <img class="img-fluid" style='border-radius:50%' width='20%' heigth='20%' src="{{asset('storage').'/'.$employee->photo}}" alt="">
+           </div>
+            {{$employee->name}}
+           </div>
+        @endforeach
+       
         </div>
+       
     </div>
-
-{{-- FIN CARRUSEL --}}
-    <div class="carousel-item ">
-          <div class="row">
-
-            <div class="col-lg-4">
-                <div class="testimonial-item mx-auto mb-5 mb-lg-0">
-                    <img class="img-fluid rounded-circle mb-3" src="{{ asset('storage'). '/' .$employee->photo}}" alt="Foto de {{ $employee->name }}" />
-                    <h5>{{ $employee->name }} {{ $employee->lastname }}</h5>
-                    <!--<p class="font-weight-light mb-0">"Bootstrap is amazing. I've been using it to create lots of super nice landing pages."</p>-->
-                </div>
-            </div>
-        </div>
-    </div>
-
-</div>
-@endforeach
-<a class="carousel-control-prev " href="#carouselExampleIndicators" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon " aria-hidden="true"><i class='fas fa-arrow-left fa-3x text-dark'></i></span>
-    <span class="sr-only">Previous</span>
-</a>
-<a class="carousel-control-next " href="#carouselExampleIndicators" role="button" data-slide="next">
-    <span class="carousel-control-next-icon " aria-hidden="true"><i class='fas fa-arrow-right fa-3x text-dark'></i></span>
-    <span class="sr-only">Next</span>
-</a>
-
-</div>
 </section>
+
+
+
+
+
+@section('js')
+<script src="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.js"></script>
+<script>
+new Glider(document.querySelector('.glider'), {
+
+  // `auto` allows automatic responsive
+  // width calculations
+   slidesToShow:'auto',
+  slidesToScroll: 'auto',
+
+
+ slidesToShow: 3,
+  // allow mouse dragging
+  draggable: true,
+  // how much to scroll with each mouse delta
+  dragVelocity: 1
+});
+
+</script>
+@endsection
