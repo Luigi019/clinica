@@ -1,6 +1,6 @@
 
         <!-- Call to Action-->
-        <section class=" text-center" id="signup">
+        <section class=" text-center" id="contactanos">
             <div class="contactanos">
                 <form method="post" id="contactForm" action="{{ route('sendMail') }}">
                     @csrf 
