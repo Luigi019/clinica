@@ -1,19 +1,28 @@
 
         <!-- Call to Action-->
-        <section class="call-to-action text-white text-center" id="signup">
-            <div class="container position-relative">
-                <div class="row justify-content-center">
-                    <div class="col-xl-6">
-                        <h2 class="mb-4">¿Preparado para comenzar?</h2>
-                        <!-- Signup form-->
-                        <form>
-                            <div class="input-group input-group-lg">
-                                <input class="form-control" type="mail" placeholder="Ingresa tu email..." aria-label="Ingresa tu email..." aria-describedby="button-submit" />
-                                <button class="btn btn-primary" id="button-submit" type="button">¡Crear cuenta!</button>
-                            </div>
-                        </form>
+        <section class=" text-center" id="signup">
+            <div class="contactanos">
+                <form action="#" method="POST">
+                    <div class="form">
+                        <h1> ¡Contactanos!</h1>
+                        <div class="grupo">
+                            <input type="text" name="" id="" required><span class="barra"></span>
+                            <label>Nombre Completo</label>
+                        </div>
+                        <div class="grupo">
+                            <input type="email" name="" id="" required><span class="barra"></span>
+                            <label>Email</label>
+                        </div>
+                        <div class="grupo">
+                            <input type="number" name="" id="" required><span class="barra"></span>
+                            <label>Número de Contacto</label>
+                        </div>
+                        <div class="grupo">
+                            <textarea name="" id="" rows="3" required placeholder="Mensaje"></textarea><span class="barra"></span>
+                        </div>
+                        <button type="submit">Enviar Email</button>
                     </div>
-                </div>
+                </form>
             </div>
         </section>
        
