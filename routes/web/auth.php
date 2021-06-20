@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\ContactController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,7 +13,7 @@ use App\Http\Controllers\Admin\UserController;
 |
 */
 
-
+Route::post("contactar" , [ContactController::class , "sendMail"])->name("sendMail");
 Route::post('/login',[UserController::class,'login'])->name('login');
 
 Route::post('/logout',[UserController::class,'logout'])->name('logout');
