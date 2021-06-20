@@ -60,7 +60,7 @@ class PermissionSeeder extends Seeder
             ],
             [
                 'id'=>6,
-                'name' => 'Crea servicios',
+                'name' => 'Crear servicios',
                 'guard_name' => 'web',
                 'created_at' => Carbon::now()
             ],
@@ -118,7 +118,7 @@ class PermissionSeeder extends Seeder
             ],
             [
                 'id'=>15,
-                'name' => 'Crea empleados',
+                'name' => 'Crear empleados',
                 'guard_name' => 'web',
                 'created_at' => Carbon::now()
             ],
