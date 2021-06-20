@@ -1,6 +1,6 @@
 
         <!-- Icons Grid-->
-        <section class="features-icons bg-light text-center">
+        <section class="features-icons bg-light text-center"id='servicios'>
             <div class="container">
                 <div class="row">
                     <div class="col-lg-4">
