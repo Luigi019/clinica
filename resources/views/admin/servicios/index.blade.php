@@ -7,15 +7,15 @@
 
 @section('content')
 
-<x-card title='Todos los servicios de la base de datos' btnTxt='CREAR SERVICIO' showBtn="{{true}}" url="{{route('servicios.create')}}">
+<x-card title='Todos los servicios de la base de datos' btnTxt='CREAR SERVICIO' showBtn="Crear servicios" url="{{route('servicios.create')}}">
 	@if (Session::has('mensaje'))
 	<div class="alert alert-success alert-dismissible" role="alert">
-		
+
 	{{	Session::get('mensaje')}}
-		
-	
+
+
 	<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-	<span aria-hidden="true">&times;</span>	
+	<span aria-hidden="true">&times;</span>
 	</button>
 	</div>
 	@endif
@@ -48,7 +48,7 @@
 							@can('Editar servicios')
 							<a href="{{ route('servicios.edit',$service->id)}}" class="btn btn-warning font-weight-bold" title="">Editar</a>
 							@endcan
-							
+
 						</td>
 					</tr>
 					@endforeach
@@ -71,7 +71,7 @@
 			<div class="float-right">
 				{!! $Services->links() !!}
 		</div>
-	
+
     </div>
 </x-card>
 @endsection
