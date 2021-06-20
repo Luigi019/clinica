@@ -1,7 +1,7 @@
      @section('css')
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.css">
 @endsection
-<section class="testimonials text-center bg-light">
+<section class="testimonials text-center bg-light" id='equipo'>
     <h1 class='mb-5 '>Equipo de primera linea</h1>
     <div class="container">
 
