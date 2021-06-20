@@ -20,7 +20,7 @@
             <div class="col-lg-4">
                 <div class="testimonial-item mx-auto mb-5 mb-lg-0">
                     <img class="img-fluid rounded-circle mb-3" src="{{ asset('storage'). '/' .$employee->photo}}" alt="Foto de {{ $employee->name }}" />
-                    <h5>{{ $employee->name }} {{ $employee->lastname }}</h5>
+                    <h5>{{ $employee->name }} {{ $employee->lastname }} <i>{{ $employee->position }}</i></h5>
                     <!--<p class="font-weight-light mb-0">"This is fantastic! Thanks so much guys!"</p> -->
                 </div>
             </div>
@@ -34,7 +34,7 @@
             <div class="col-lg-4">
                 <div class="testimonial-item mx-auto mb-5 mb-lg-0">
                     <img class="img-fluid rounded-circle mb-3" src="{{ asset('storage'). '/' .$employee->photo}}" alt="Foto de {{ $employee->name }}" />
-                    <h5>{{ $employee->name }} {{ $employee->lastname }}</h5>
+                    <h5>{{ $employee->name }} {{ $employee->lastname }} <i>{{ $employee->position }}</i></h5>
                     <!--<p class="font-weight-light mb-0">"Bootstrap is amazing. I've been using it to create lots of super nice landing pages."</p>-->
                 </div>
             </div>
