@@ -1,6 +1,6 @@
-     @section('css')
+   
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.css">
-@endsection
+
 <section class="testimonials text-center bg-light" id='equipo'>
     <h1 class='mb-5 '>Equipo de primera linea</h1>
     <div class="container">
@@ -21,7 +21,8 @@
     </div>
 </section>
 
-@section('js')
+
+
 <script src="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.js"></script>
 <script>
 new Glider(document.querySelector('.glider'), {
@@ -40,4 +41,3 @@ new Glider(document.querySelector('.glider'), {
 });
 
 </script>
-@endsection

@@ -16,8 +16,9 @@
 	var typed = new Typed('#typed', {
 
 		strings: [
-		'',
-		'Tu salud es importante para nosotros.'
+			'',
+		'Tu salud es importante para nosotros.',
+		
 
 		],
 		typeSpeed: 100,
