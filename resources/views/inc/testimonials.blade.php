@@ -10,9 +10,9 @@
         @foreach ($employee as $employee)
            <div class=''>
            <div class='img-fluid'>
-           <img class="img-fluid" style='border-radius:50%' width='20%' heigth='20%' src="{{asset('storage').'/'.$employee->photo}}" alt="">
+           <img class="img-fluid" style='border-radius:50%' width='40%' heigth='40%' src="{{asset('storage').'/'.$employee->photo}}" alt="">
            </div>
-            {{$employee->name}}
+           <p><b>{{$employee->name}}  {{$employee->lastname}} <i> {{$employee->position}} </i></b></p> 
            </div>
         @endforeach
        

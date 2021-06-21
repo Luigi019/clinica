@@ -414,7 +414,7 @@ div.contactanos form .grupo{
   margin: 45px;
 }
 
-div.contactanos input, textarea{
+div.contactanos input, div.contactanos textarea{
   background: none;
   color:#c6c6c6;
   font-size: 18px;
@@ -426,14 +426,14 @@ div.contactanos input, textarea{
   resize: none;
 }
 
-div.contactanos input:focus,textarea:focus{
+div.contactanos input:focus, div.contactanos textarea:focus{
   outline: none;
   color: black;
 }
 
 div.contactanos input:focus~label, 
-input:valid~label, 
-textarea:focus~label, textarea:valid~label{
+div.contactanos input:valid~label, 
+div.contactanos textarea:focus~label, div.contactanos textarea:valid~label{
   position: absolute;
   top: -14px;
   font-size: 12px;
@@ -472,11 +472,8 @@ div.contactanos input:focus~.barra::before, textarea:focus~.barra::before{
 }
 div.contactanos button{
   background: #5d2877;
-  /* fallback for old browsers */
   background: -webkit-linear-gradient(to right, #029bd8, #5d2877);
-  /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, #029bd8, #5d2877);
-  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   display: block;
   width: 100px;
   height: 40px;
