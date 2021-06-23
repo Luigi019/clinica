@@ -367,7 +367,7 @@ a:not([href]):not([class]), a:not([href]):not([class]):hover {
 div.contactanos {
   position: relative;
   background: url("../img/bg-mastfoot.jpg") no-repeat center center;
-  background-size: cover; 
+  background-size: contain; 
   padding-top: 7rem;
   padding-bottom: 7rem;
   width: 100%;

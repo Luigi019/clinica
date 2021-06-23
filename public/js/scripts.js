@@ -55,3 +55,4 @@ window.addEventListener('DOMContentLoaded', event => {
             te = String.fromCharCode(tecla); 
             return patron.test(te); // prueba de patron
     }
+};

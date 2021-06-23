@@ -30,28 +30,4 @@
             </div>
           
         </section>
-        @section("js")
-
-
-
-
-                                <script> 
-
-
-
-                                    @if(session('swal'))
-
-                                    swal({
-                                      title: "Gracias por contactarnos!",
-                                      text: "¡Nos pondremos en contacto con usted lo antes posible!",
-                                      icon: "success",
-                                      button: "Aceptar",
-                                  });
-
-                                    @endif
-
-                                </script>
-
-
-
-                                @endsection
+    

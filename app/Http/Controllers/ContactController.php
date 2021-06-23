@@ -15,6 +15,6 @@ class ContactController extends Controller
         {
             Notification::route('mail', $to[$i])->notify(new ContactUs($request));
         }
-        return back()->with("swal" , true);
+        return back()->with('message', 'Nos contacto exitosamente, pronto nos pondremos en contacto con usted!')->with('type','success');
     }
 }
