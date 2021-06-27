@@ -1,3 +1,7 @@
+ // Preloader
+ $(window).on('load', function() {
+    $('#preloader').delay(100).fadeOut('slow',function(){$(this).remove();});
+  });
 
 window.addEventListener('DOMContentLoaded', event => {
 
@@ -14,6 +18,7 @@ window.addEventListener('DOMContentLoaded', event => {
         }
 
 };
+})
 
     // Shrink the navbar 
     navbarShrink();
@@ -55,4 +60,4 @@ window.addEventListener('DOMContentLoaded', event => {
             te = String.fromCharCode(tecla); 
             return patron.test(te); // prueba de patron
     }
-};
+          

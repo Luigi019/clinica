@@ -17,9 +17,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $employee = Employee::all();
+        $employee['employee'] = Employee::all();
 
-        $service = Service::all();
-        return view('welcome', compact('service', 'employee'));
+        
+        $service['services'] = Service::paginate(6);
+        return view('welcome', $employee, $service);
     }
 }

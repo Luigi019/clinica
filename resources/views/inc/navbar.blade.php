@@ -1,5 +1,6 @@
       <!-- barra de navegación-->
         <!-- Navigation-->
+        <div id="preloader"></div>
         <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3 d-flex" id="mainNav">
         <div class="container px-4 px-lg-5 ">
               <img class="rounded-circle" src="{{ asset('img/clinica-ico.ico') }}" alt="logo" height="100%" width="10%">
@@ -37,4 +38,5 @@
                 </div>
             </div>
         </header>
+  
         <!--Termina el header-->
