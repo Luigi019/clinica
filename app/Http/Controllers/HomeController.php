@@ -23,4 +23,10 @@ class HomeController extends Controller
         $service['services'] = Service::paginate(6);
         return view('welcome', $employee, $service);
     }
+    public function service()
+    {
+        
+        $service['services'] = Service::paginate(6);
+        return view('service', $service);
+    }
 }

@@ -606,6 +606,20 @@ div.contactanos button{
   }
 }
 /*fin del formulario*/
+.FunnyButtom{
+  background: #5d2877;
+  background: -webkit-linear-gradient(to right, #029bd8, #5d2877);
+  background: linear-gradient(to right, #029bd8, #5d2877);
+  display: block;
+  width: 100px;
+  height: 40px;
+  border:none;
+  color:#fff; 
+  border-radius: 4px;
+  font-size: 16px;
+  margin: 10px auto;
+  cursor: pointer;
+}
 pre,
 code,
 kbd,

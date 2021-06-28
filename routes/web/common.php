@@ -14,4 +14,5 @@ use App\Http\Controllers\ContactController;
 */
 
 Route::get('/',[HomeController::class,'index'])->name('home');
+Route::get('service',  [HomeController::class , "service"])->name("service");
 Route::post("contactar" , [ContactController::class , "sendMail"])->name("sendMail");

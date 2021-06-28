@@ -16,8 +16,23 @@
           </figure>
         </div>
          @endforeach
+         <br>
          <div class="justify-content-center">
-            {!! $services->links() !!}
+          <a href="{{ route('service') }}" target="_blank" class="btn btn" style=" background: #5d2877;
+            background: -webkit-linear-gradient(to right, #029bd8, #5d2877);
+            background: linear-gradient(to right, #029bd8, #5d2877);
+            display: block;
+            width: 100px;
+            height: 40px;
+            border:none;
+            color:#fff; 
+            border-radius: 4px;
+            font-size: 16px;
+            margin: 10px auto;
+            cursor: pointer; text-align: center;">
+            <strong>Ver más</strong>
+            
+          </a>
     </div>
       </div>
       

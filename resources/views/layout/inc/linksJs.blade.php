@@ -16,9 +16,6 @@
                             <li class="list-inline-item me-4">
                                 <a href="https://www.facebook.com/Drayessiponce" target="_blank"><i class="bi-facebook fs-3"></i></a>
                             </li>
-                            <li class="list-inline-item me-4">
-                                <a href="#!"><i class="bi-twitter fs-3"></i></a>
-                            </li>
                             <li class="list-inline-item">
                                 <a href="https://www.instagram.com/drayessiponc/" target="_blank"><i class="bi-instagram fs-3"></i></a>
                             </li>
