@@ -19,11 +19,11 @@ class PasswordResetController extends Controller
         $credenciales = $this->validate($request, [
             'email' => ['email', 'required'],
         ]);
-        $user = Auth::attempt($credenciales);
+        $user = User::where('email' , $request->email)->first();
 
         if (!$user) {
 
-            return redirect()->back();
+            return redirect()->back()->with('message', 'Correo no encontrado')->with('type', 'warning');
         }
 
         $request->session()->regenerate();
