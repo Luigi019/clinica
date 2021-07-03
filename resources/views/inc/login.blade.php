@@ -23,7 +23,7 @@
               <div class="custom-control custom-checkbox mb-3" d-flex>
                 <input type="checkbox" class="custom-control-input" id="customCheck1" name="token">
                 <label class="custom-control-label" for="customCheck1">Recordar Contraseña</label>
-                <a class="custom-control-label" text-style="none" href="#">¿Olvidaste la contraseña?</a>
+                <a class="custom-control-label" text-style="none" href="#" data-toggle="modal" data-target="#exampleModal2">¿Olvidaste la contraseña?</a>
               </div>
          
              
@@ -37,3 +37,4 @@
     </div>
   </div>
 </div>
+@include('inc.ForgotPassword');
