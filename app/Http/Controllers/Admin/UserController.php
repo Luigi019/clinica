@@ -45,7 +45,7 @@ class UserController extends Controller
     {
 
 
-        $users = User::where('id','!=',Auth::user()->id)->get();
+        $users = User::where('id', '!=', Auth::user()->id)->get();
         return view('admin.usuarios.index', compact('users'));
     }
 
@@ -53,33 +53,33 @@ class UserController extends Controller
     {
         $user = new User();
         $roles = self::haveRoles($user);
-        return view('admin.usuarios.create',compact('user','roles'));
+        return view('admin.usuarios.create', compact('user', 'roles'));
     }
 
     public function edit(User $user)
     {
         $roles = $this->haveRoles($user);
-        return view('admin.usuarios.edit',compact('user','roles'));
+        return view('admin.usuarios.edit', compact('user', 'roles'));
     }
 
-    public function store( Request $req )
+    public function store(Request $req)
     {
         // validate request
         $req->validate([
-            'name'=>['required'],
-            'lastname'=>['required'],
-            'email'=>['required','email','unique:users'],
-            'password'=>['required','min:6'],
+            'name' => ['required'],
+            'lastname' => ['required'],
+            'email' => ['required', 'email', 'unique:users'],
+            'password' => ['required', 'min:6'],
         ]);
         // extract data
         $data = $req->except('_token');
 
         //create a new user
-       $user =  User::create($data);
+        $user =  User::create($data);
 
-       $user->roles()->sync($data['roles']);
-            // redirect back
-          return back()->with('message', 'Usuario creado exitosamente')->with('type','success');
+        $user->roles()->sync($data['roles']);
+        // redirect back
+        return back()->with('message', 'Usuario creado exitosamente')->with('type', 'success');
     }
 
     public function destroy(User $user)
@@ -87,20 +87,19 @@ class UserController extends Controller
         //delete user on database
         $user->delete();
         // redirect back
-        return back()->with('message', 'Usuario eliminado exitosamente')->with('type','success');
-
+        return back()->with('message', 'Usuario eliminado exitosamente')->with('type', 'success');
     }
 
     public function profile()
     {
-     return view('admin.perfil.profile');
+        return view('admin.perfil.profile');
     }
 
     public function updateDataUser(Request $request)
     {
         $request->validate([
-            'name'=>['required' , 'string' ],
-            'email'=>['required' , 'string' , 'email' ,'unique:users'],
+            'name' => ['required', 'string'],
+            'email' => ['required', 'string', 'email', 'unique:users'],
         ]);
 
         Auth::user()->name = $request->name;
@@ -108,20 +107,20 @@ class UserController extends Controller
 
         Auth::user()->update();
 
-        return back()->with('message' , 'Actualizado correctamente')->with('type', 'success');
+        return back()->with('message', 'Actualizado correctamente')->with('type', 'success');
     }
 
     public function updatePassword(Request $request)
     {
         $request->validate([
-            'password'=>['required' , 'string' ,'min:6' ],
-            'confirm'=>['required' , 'string'  ]
-        ]); 
-if(!Hash::check($request->confirm, Auth::user()->password)) return back()->with('message' , 'La clave confirmada no es valida')->with('type', 'danger'); 
-        
-Auth::user()->password = $request->password;
+            'password' => ['required', 'string', 'min:6'],
+            'confirm' => ['required', 'string']
+        ]);
+        if (!Hash::check($request->confirm, Auth::user()->password)) return back()->with('message', 'La clave confirmada no es valida')->with('type', 'danger');
 
-        return back()->with('message' , 'La clave se actualizo correctamente')->with('type', 'success');
+        Auth::user()->password = $request->password;
+
+        return back()->with('message', 'La clave se actualizo correctamente')->with('type', 'success');
     }
 
     /**
@@ -130,7 +129,7 @@ Auth::user()->password = $request->password;
      * @param [type] $user
      * @return array
      */
-    public static function haveRoles($user) :array
+    public static function haveRoles($user): array
     {
         // get all roles
         $roles = Role::all();
@@ -138,21 +137,16 @@ Auth::user()->password = $request->password;
         $haveRole = $user->roles()->get();
         // create empty array
         $data = [];
-        foreach($roles as $key=> $rol)
-        {
+        foreach ($roles as $key => $rol) {
             //verify if exists users with roles
-			if ($haveRole->contains($rol))
-            {
-				$data[$rol->name]['check'] = true;
-
-			}else{
-				$data[$rol->name]['check'] = false;
-			}
-			$data[$rol->name]['id'] = $rol->id;
-		}
+            if ($haveRole->contains($rol)) {
+                $data[$rol->name]['check'] = true;
+            } else {
+                $data[$rol->name]['check'] = false;
+            }
+            $data[$rol->name]['id'] = $rol->id;
+        }
 
         return $data;
-
     }
-
 }
