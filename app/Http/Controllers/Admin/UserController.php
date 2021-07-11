@@ -11,6 +11,12 @@ use Hash, Auth;
 
 class UserController extends Controller
 {
+    /**
+     * Undocumented function
+     *
+     * @param Request $request
+     * @return void
+     */
     public function login(Request $request)
     {
         $credenciales = $this->validate($request, [
@@ -85,7 +91,45 @@ class UserController extends Controller
 
     }
 
+    public function profile()
+    {
+     return view('admin.perfil.profile');
+    }
 
+    public function updateDataUser(Request $request)
+    {
+        $request->validate([
+            'name'=>['required' , 'string' ],
+            'email'=>['required' , 'string' , 'email' ,'unique:users'],
+        ]);
+
+        Auth::user()->name = $request->name;
+        Auth::user()->email = $request->email;
+
+        Auth::user()->update();
+
+        return back()->with('message' , 'Actualizado correctamente')->with('type', 'success');
+    }
+
+    public function updatePassword(Request $request)
+    {
+        $request->validate([
+            'password'=>['required' , 'string' ,'min:6' ],
+            'confirm'=>['required' , 'string'  ]
+        ]); 
+if(!Hash::check($request->confirm, Auth::user()->password)) return back()->with('message' , 'La clave confirmada no es valida')->with('type', 'danger'); 
+        
+Auth::user()->password = $request->password;
+
+        return back()->with('message' , 'La clave se actualizo correctamente')->with('type', 'success');
+    }
+
+    /**
+     * Undocumented function
+     *
+     * @param [type] $user
+     * @return array
+     */
     public static function haveRoles($user) :array
     {
         // get all roles
@@ -110,4 +154,5 @@ class UserController extends Controller
         return $data;
 
     }
+
 }

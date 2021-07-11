@@ -248,11 +248,11 @@ return [
         //     'url'  => $prefix.'blog',
         //     'can'  => 'manage-blog',
         // ],
-     
+
 
         [
             'text' => 'Perfil',
-            'url'  => $prefix.'settings',
+            'url'  => $prefix.'perfil',
             'icon' => 'fas fa-fw fa-user',
         ],
         ['header'=>'Gestor de contenido'],

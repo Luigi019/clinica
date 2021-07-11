@@ -18,7 +18,10 @@ use App\Http\Controllers\Admin\RoleController;
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
 
-    Route::get('home', [HomeController::class, 'index'])->name('panel');;
+    Route::get('home', [HomeController::class, 'index'])->name('panel');
+    Route::get('perfil', [UserController::class , 'profile'])->name('profile');
+    Route::post('perfil/update', [UserController::class , 'updateDataUser'])->name('update.data.user');
+    Route::post('perfil/updatePaswword', [UserController::class , 'updatePassword'])->name('updatePassword');
     //Rutas para empleados
     //Routes for employee
    Route::prefix('empleados')->group(function () {
