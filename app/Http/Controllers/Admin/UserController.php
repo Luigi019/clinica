@@ -75,6 +75,7 @@ class UserController extends Controller
         $data = $req->except('_token');
 
         //create a new user
+        $data['password'] = Hash::make($data['password']);
         $user =  User::create($data);
 
         $user->roles()->sync($data['roles']);
