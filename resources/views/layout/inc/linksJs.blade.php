@@ -9,12 +9,15 @@
                             <li class="list-inline-item">⋅</li>
                             <li class="list-inline-item"><a href="#!">Contactanos</a></li>
                         </ul>
-                        <p class="text-muted small mb-4 mb-lg-0">&copy; {{ date('Y') }} - Centro médico Diagnóstico Clínico. All Rights Reserved.</p>
+                        <p class="text-muted small mb-4 mb-lg-0">&copy; {{ date('Y') }} - Centro médico Diagnóstico Clínico. Todos los derechos reservados.</p>
                     </div>
                     <div class="col-lg-6 h-100 text-center text-lg-end my-auto">
                         <ul class="list-inline mb-0">
                             <li class="list-inline-item me-4">
                                 <a href="https://www.facebook.com/Drayessiponce" target="_blank"><i class="bi-facebook fs-3"></i></a>
+                            </li>
+                            <li class="list-inline-item me-4">
+                                <a href="https://wa.me/send?phone=593963168166&text=Hola%20dra,%20quiero%20una%20consulta" target="_blank"><i class="bi-whatsapp fs-3"></i></a>
                             </li>
                             <li class="list-inline-item">
                                 <a href="https://www.instagram.com/drayessiponc/" target="_blank"><i class="bi-instagram fs-3"></i></a>

@@ -16,7 +16,7 @@
 	@endif
 	
 @include("inc.allservices") 
-
+@include("inc.signupform") 
 @endsection
 
 

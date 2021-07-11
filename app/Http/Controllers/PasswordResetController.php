@@ -7,6 +7,7 @@ use App\Models\User;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 use Hash, Auth;
+use Illuminate\Support\Facades\Password;
 
 class PasswordResetController extends Controller
 {
@@ -19,17 +20,15 @@ class PasswordResetController extends Controller
         $credenciales = $this->validate($request, [
             'email' => ['email', 'required'],
         ]);
-        $user = User::where('email' , $request->email)->first();
-
-        if (!$user) {
-
-            return redirect()->back()->with('message', 'Correo no encontrado')->with('type', 'warning');
-        }
-
-        $request->session()->regenerate();
-
-        return redirect()->route('ResetPassword');
+        $status = Password::sendResetLink(
+            $request->only('email')
+        );
+    
+        return $status === Password::RESET_LINK_SENT
+                    ? back()->with(['status' => __($status)])
+                    : back()->withErrors(['email' => __($status)]);
     }
+
     public function ResetPassword()
     {
 

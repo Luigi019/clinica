@@ -6,9 +6,9 @@
 <br><br>
         </div>
          @foreach ($services as $service)
-        <div class="col-md-4 col-sm-6 col-xs-12 portfolio-item padding-right-zero mr-btn-15">
+         <div class="col-md-4 col-sm-6 col-xs-12 portfolio-item padding-right-zero mr-btn-15 mt-3 mb-3">
           <figure>
-            <img src="{{ asset('storage'). '/' .$service->photo}}" alt="Foto de {{ $service->name }}" class="img-responsive" style="max-height: 120%; max-width: 120%;">
+            <img src="{{ asset('storage'). '/' .$service->photo}}" alt="Foto de {{ $service->name }}" class="img-responsive" style="max-height: 300px; max-width: 350px; min-height: 300px; min-width: 350px;">
             <figcaption>
               <h2 style="color: #5d2877;">{{ $service->name }}</h2>
               <p><b>{{ $service->description }}</b></p>

@@ -7,7 +7,6 @@
         <h5 class="modal-title" id="exampleModalLabel">Recuperar Contraseña</h5>
         <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
         
-        </button>
       </div>
       <div class="modal-body">
       <form class="form-signin" method="post" action="{{ route ('SendLinkForgotPassword') }}">
