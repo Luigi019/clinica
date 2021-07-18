@@ -37,4 +37,4 @@
     </div>
   </div>
 </div>
-@include('inc.ForgotPassword');
+@include('inc.ForgotPassword')

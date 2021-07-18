@@ -18,7 +18,7 @@
         </nav>
           <br><br><br>
 
-          @include('inc.login');
+          @include('inc.login')
 
         <!-- Inicio del header-->
         <!-- Masthead-->
@@ -35,6 +35,21 @@
                             {{--     <a class="btn btn-info transition">Hay que cambiar este boton por un boton mas bonito que rediriga a la seccion de servicios</a> --}}
                         </div>
                     </div>
+                </div>
+                <div class="social" style="position: fixed; top: 200px; left: 0; z-index: 10!important; list-style: none!important;">
+                    <ul style="list-style-type: none;">
+                        <li>
+                            <a href="https://www.facebook.com/Drayessiponce" target="_blank"><i class="bi-facebook fs-3" style="color: #385b9d;"></i></a><br>
+                        </li>
+                        <li>
+                            <a href="https://wa.me/send?phone=593963168166&text=Hola%20dra,%20quiero%20una%20consulta" target="_blank"><i class="bi-whatsapp fs-3" style="color: green;"></i></a><br>
+                        </li>
+                        <li>
+                            <a href="https://www.instagram.com/drayessiponc/" target="_blank"><i class="bi-instagram fs-3" style="color: #fff; border-radius: 1px; background: #f9ed32; background: -webkit-linear-gradient(to right, #f9ed32, #ee2a7b, #002aff);
+                                background: linear-gradient(to right, #f9ed32, #ee2a7b, #002aff);   -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;"></i></a><br>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </header>
