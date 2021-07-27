@@ -14,14 +14,14 @@
                         <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
                             <div class="features-icons-icon d-flex"><i class="fas fa-hospital-user m-auto text-primary"></i></div>
                             <h3 style="color: #5d2877;">Siempre Preparados</h3>
-                            <p class="lead mb-0"><b>Texto de prueba!</b></p>
+                            <p class="lead mb-0"><b>Con nosotros su salud está más que garantizada</b></p>
                         </div>
                     </div>
                     <div class="col-lg-4">
                         <div class="features-icons-item mx-auto mb-0 mb-lg-3">
                             <div class="features-icons-icon d-flex"><i class="fas fa-lungs-virus m-auto text-primary"></i></div>
                             <h3 style="color: #5d2877;">¡Cuidaremos de usted!</h3>
-                            <p class="lead mb-0"><b>Texto!</b></p>
+                            <p class="lead mb-0"><b>Nos aseguramos de que siempre te sientas comodo y seguro!</b></p>
                         </div>
                     </div>
                 </div>
