@@ -56,16 +56,18 @@ $service->update();
             //return response()->json($dataService);
             return redirect('admin/servicios')->with('mensaje', 'Servicio creado exitosamente');
     }
-    public function destroy($id)
+    public function destroy(Service $service)
     {
-        //
-        $service=Service::findOrFail($id);
-        if (\File::delete(public_path().'/uploads/'.$service->photo))
-        {
-            Service::destroy($id);
-        }
-        
-     return redirect('admin/servicios')->with('mensaje', 'Servicio eliminado exitosamente');;
 
+        // delete file
+        if (\File::delete(public_path().'/uploads/'.$service->photo))
+
+            //delete employee
+            $service->delete();
+
+        else
+        $service->delete();
+
+        return back()->with('message', 'Servicio eliminado exitosamente')->with('type','info');
     }
 }
