@@ -34,8 +34,8 @@ class ServiceController extends Controller
         $dataService=$request->except(["_token", '_method']); 
         if($request->hasFile('photo'))
         {
-            \File::delete(public_path().'/uploads/'.$service->photo);
-            $dataService['photo']=$request->file('photo')->move(public_path().'/uploads');
+            Storage::delete('public/storage/'.$service->photo);
+            $dataService['photo']=$request->file('photo')->store('uploads', 'public');
             $service->photo = $dataService['photo'];
         }
         $service->name = $request->name;
@@ -60,14 +60,13 @@ $service->update();
     {
 
         // delete file
-        if (\File::delete(public_path().'/uploads/'.$service->photo))
-
+        if (Storage::delete('public/storage/' . $service->photo))
             //delete employee
             $service->delete();
 
         else
         $service->delete();
 
-        return back()->with('message', 'Servicio eliminado exitosamente')->with('type','info');
+        return back()->with('message', 'Empleado eliminado exitosamente')->with('type','info');
     }
 }
