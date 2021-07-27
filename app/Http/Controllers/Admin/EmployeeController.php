@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Employee;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\file;
 
 class EmployeeController extends Controller
 {
@@ -36,8 +36,8 @@ class EmployeeController extends Controller
         $dataEmployee = $request->except(["_token", '_method']);
         if ($request->hasFile('photo')) {
 
-            Storage::delete('public/' . $employee->photo);
-            $dataEmployee['photo'] = $request->file('photo')->store('uploads', 'public');
+            \File::delete(public_path().'/uploads/'.$employee->photo);
+            $dataEmployee['photo'] = $request->file('photo')->move(public_path().'/uploads');
             $employee->photo = $dataEmployee['photo'];
         }
     $employee->name = $request->name;
@@ -62,7 +62,7 @@ class EmployeeController extends Controller
         if ($request->hasFile('photo')) {
             // store image on storage
             // guardar imagen en storage
-            $dataEmployee['photo'] = $request->file('photo')->store('uploads', 'public');
+            $dataEmployee['photo'] = $request->file('photo')->move(public_path().'/uploads');
         }
 
         // create data
@@ -75,7 +75,7 @@ class EmployeeController extends Controller
     {
 
         // delete file
-        if (Storage::delete('public/storage/' . $employee->photo))
+        if (\File::delete(public_path().'/uploads/'.$employee->photo))
 
             //delete employee
             $employee->delete();

@@ -34,8 +34,8 @@ class ServiceController extends Controller
         $dataService=$request->except(["_token", '_method']); 
         if($request->hasFile('photo'))
         {
-            Storage::delete('public/storage/'.$service->photo);
-            $dataService['photo']=$request->file('photo')->store('uploads', 'public');
+            \File::delete(public_path().'/uploads/'.$service->photo);
+            $dataService['photo']=$request->file('photo')->move(public_path().'/uploads');
             $service->photo = $dataService['photo'];
         }
         $service->name = $request->name;
@@ -49,7 +49,7 @@ $service->update();
             $dataService=$request->except("_token");
             if($request->hasFile('photo'))
             {
-                $dataService['photo']=$request->file('photo')->store('uploads', 'public');
+                $dataService['photo']=$request->file('photo')->move(public_path().'/uploads');
             }
            
             Service::insert($dataService);
@@ -60,7 +60,8 @@ $service->update();
     {
         //
         $service=Service::findOrFail($id);
-        if( Storage::delete('public/'.$service->photo)){
+        if (\File::delete(public_path().'/uploads/'.$service->photo))
+        {
             Service::destroy($id);
         }
         
